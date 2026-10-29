@@ -135,8 +135,11 @@ footer.site .who{font-family:var(--keedy);font-weight:700;font-size:1.5em;line-h
 footer.site nav{display:flex;flex-wrap:wrap;justify-content:center;gap:4px var(--s2);font-size:.9em}
 footer.site nav a{padding:6px 2px;user-select:text}
 footer.site .copy{margin:0;font-size:.8em;color:var(--soft)}
-/* "watch instead": the whole essay as one film, offered right after the intro */
-article>.watch{max-width:var(--text);margin:var(--s3) auto;display:flex;flex-direction:column;align-items:center;gap:.35em;text-align:center}
+/* "watch instead": the whole essay as one film, offered ~870 words in, between sections.
+   Equal --s4 above and below (it collapses with the next heading's --s4), short hairlines frame it as an aside. */
+article>.watch{max-width:var(--text);margin:var(--s4) auto;padding-block:var(--s3);position:relative;display:flex;flex-direction:column;align-items:center;gap:.35em;text-align:center}
+.watch::before,.watch::after{content:"";position:absolute;left:50%;width:4em;border-top:1px solid var(--rule);transform:translateX(-50%)}
+.watch::before{top:0}.watch::after{bottom:0}
 .watch .ask{margin:0;font-style:italic;color:var(--soft);font-size:.95em}
 .watch .go{font-family:var(--keedy);font-weight:700;font-size:clamp(25.3px,3.8vw,37.95px);line-height:1.15;text-wrap:balance}
 .watch a.go[href]{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.18em}
@@ -162,13 +165,6 @@ article>.watch{max-width:var(--text);margin:var(--s3) auto;display:flex;flex-dir
   </figure>
 
   <p class="intro">This essay was published in the first edition of <a href="https://www.itsnicethat.com/articles/the-imperfect-index-publication-graphic-design-project-170225" target="_blank" rel="noopener">An Imperfect Index</a>. During periods of writers-block, I started to make digital colleges based on the essay. Those collages eventually evolved into a number of narrated video excerpts, which can be viewed throughout this piece.</p>
-  <!-- WATCH INSTEAD — the complete film. While it's in the edit this is a placeholder (an <a> with no href isn't clickable).
-       To go live: add href="https://youtu.be/VIDEO_ID" target="_blank" rel="noopener" to the <a class="go">, and delete the <p class="soon"> line. -->
-  <div class="watch">
-    <p class="ask">Not up for a 3,000-word essay today?</p>
-    <a class="go">Watch it as one film&#8202;&#8594;</a>
-    <p class="soon">Coming soon</p>
-  </div>
 
   <div class="cn"><span>Content note:</span> This essay mentions suicide.</div>
 
@@ -207,6 +203,14 @@ article>.watch{max-width:var(--text);margin:var(--s3) auto;display:flex;flex-dir
   </figure>
 
   <p>Both the archive and the film take audiences on a quixotic quest through Canada’s history of graphic design through the lens of modernism, which predictably, reminds us of how overwhelmingly white and male Canada’s historical canon of graphic design is. The link between white supremacy and modernism goes back centuries — and is discussed at length across many different disciplines like art, design, and architecture — but there’s little to no acknowledgement of this in either the archive or film. I used to shake my head in frustration every time I viewed the archive and film because, from a historical and critical perspective, they’re just so incredibly narrow. But the more I learn, the more I realize that when it comes to modernism, exclusion, and singularity are just the nature of the beast.</p>
+
+  <!-- WATCH INSTEAD — the complete film. While it's in the edit this is a placeholder (an <a> with no href isn't clickable).
+       To go live: add href="https://youtu.be/VIDEO_ID" target="_blank" rel="noopener" to the <a class="go">, and delete the <p class="soon"> line. -->
+  <div class="watch">
+    <p class="ask">Not up for another 2,500 words today?</p>
+    <a class="go">Watch it as one film&#8202;&#8594;</a>
+    <p class="soon">Coming soon</p>
+  </div>
 
   <h2 class="sec">A Golden Era for Who?</h2>
 
