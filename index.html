@@ -135,17 +135,14 @@ footer.site .who{font-family:var(--keedy);font-weight:700;font-size:1.5em;line-h
 footer.site nav{display:flex;flex-wrap:wrap;justify-content:center;gap:4px var(--s2);font-size:.9em}
 footer.site nav a{padding:6px 2px;user-select:text}
 footer.site .copy{margin:0;font-size:.8em;color:var(--soft)}
-/* complete film: one combined cut of every excerpt, closing the page */
-.film{max-width:var(--wide);margin:0 auto;padding-block:var(--s4) var(--s3);border-top:1px solid var(--rule);display:flex;flex-direction:column;align-items:center;gap:var(--s2);text-align:center}
-.film h2{font-family:var(--keedy);font-weight:700;font-size:clamp(35.42px,5.31vw,53.13px);line-height:1.1;margin:0;text-wrap:balance}
-.film .dek{margin:0;max-width:var(--text);color:var(--soft);font-style:italic;font-size:.95em;text-wrap:balance}
-.film figure{margin:0;width:100%}
-.video.soon{display:grid;place-items:center;border:1px dashed var(--rule);background:#0a0a0a}
-.video.soon .tag{font-family:var(--keedy);font-weight:700;font-size:clamp(25.3px,3.8vw,37.95px);line-height:1.1;letter-spacing:.02em}
-.video.soon .tag small{display:block;margin-top:.5em;font-family:var(--serif);font-weight:400;font-style:italic;font-size:.55em;letter-spacing:0;color:var(--soft)}
-.film ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:4px var(--s2);font-size:.85em;color:var(--soft)}
-.film ol{counter-reset:film}.film ol li{counter-increment:film}
-.film ol li::before{content:counter(film) ". ";font-variant-numeric:tabular-nums}
+/* "watch instead": the whole essay as one film, offered right after the intro */
+article>.watch{max-width:var(--text);margin:var(--s3) auto;display:flex;flex-direction:column;align-items:center;gap:.35em;text-align:center}
+.watch .ask{margin:0;font-style:italic;color:var(--soft);font-size:.95em}
+.watch .go{font-family:var(--keedy);font-weight:700;font-size:clamp(25.3px,3.8vw,37.95px);line-height:1.15;text-wrap:balance}
+.watch a.go[href]{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.18em}
+.watch a.go[href]:hover{text-decoration-thickness:3px}
+.watch a.go:not([href]){text-decoration:none}
+.watch .soon{margin:0;font-size:.75em;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
 @media (max-width:560px){
   figure{margin:var(--s2) 0}
   .pull{margin:var(--s2) auto}
@@ -165,6 +162,13 @@ footer.site .copy{margin:0;font-size:.8em;color:var(--soft)}
   </figure>
 
   <p class="intro">This essay was published in the first edition of <a href="https://www.itsnicethat.com/articles/the-imperfect-index-publication-graphic-design-project-170225" target="_blank" rel="noopener">An Imperfect Index</a>. During periods of writers-block, I started to make digital colleges based on the essay. Those collages eventually evolved into a number of narrated video excerpts, which can be viewed throughout this piece.</p>
+  <!-- WATCH INSTEAD — the complete film. While it's in the edit this is a placeholder (an <a> with no href isn't clickable).
+       To go live: add href="https://youtu.be/VIDEO_ID" target="_blank" rel="noopener" to the <a class="go">, and delete the <p class="soon"> line. -->
+  <div class="watch">
+    <p class="ask">Not up for a 3,000-word essay today?</p>
+    <a class="go">Watch it as one film&#8202;&#8594;</a>
+    <p class="soon">Coming soon</p>
+  </div>
 
   <div class="cn"><span>Content note:</span> This essay mentions suicide.</div>
 
@@ -327,30 +331,6 @@ footer.site .copy{margin:0;font-size:.8em;color:var(--soft)}
     </ol>
   </section>
 </article>
-
-<!-- COMPLETE FILM — placeholder until the combined cut is on YouTube.
-     To go live: replace the <div class="video soon">…</div> below with
-     <a class="video" data-yt="VIDEO_ID" href="https://youtu.be/VIDEO_ID" target="_blank" rel="noopener">
-       <img src="https://i.ytimg.com/vi/VIDEO_ID/maxresdefault.jpg" alt="It Lives! The complete film" width="1280" height="720" loading="lazy">
-       <span class="play" aria-hidden="true"></span>
-     </a>
-     The existing player script picks it up automatically. -->
-<section class="film" aria-labelledby="film-h">
-  <h2 id="film-h">The Complete Film</h2>
-  <p class="dek">Every narrated excerpt from the essay, joined into a single film.</p>
-  <figure>
-    <div class="video soon" role="img" aria-label="Video placeholder: the complete film is coming soon">
-      <span class="tag">Coming soon<small>The combined film is in the edit</small></span>
-    </div>
-    <figcaption>It Lives! The complete film</figcaption>
-  </figure>
-  <ol aria-label="Included excerpts">
-    <li>Canada’s Modernist Map</li>
-    <li>Zombie Modernism</li>
-    <li>Commute to the Colonial Outpost</li>
-    <li>Last Minute Lumping of Race and Indifference</li>
-  </ol>
-</section>
 
 <footer class="site">
   <h2 class="who">Contact</h2>
