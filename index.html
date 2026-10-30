@@ -161,9 +161,12 @@ figure>img.page{width:100%;max-width:var(--text);height:auto}
 .lb .close:hover{opacity:.7}
 .lb{touch-action:none;user-select:none;-webkit-user-select:none}
 .lb img{cursor:zoom-in;will-change:transform}
-.lb .prev{left:max(10px,env(safe-area-inset-left,0px));bottom:calc(env(safe-area-inset-bottom,0px) + 10px)}
-.lb .next{right:max(10px,env(safe-area-inset-right,0px));bottom:calc(env(safe-area-inset-bottom,0px) + 10px)}
-.lb .lbcount{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + 22px);left:50%;transform:translateX(-50%);color:var(--soft);font-size:.8em;font-variant-numeric:tabular-nums}
+.lb .nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:88px;padding:0;border:0;background:none;color:var(--soft);opacity:.55;cursor:pointer;display:grid;place-items:center;transition:opacity .2s}
+.lb .nav svg{width:18px;height:36px}
+.lb .nav:hover,.lb .nav:focus-visible{opacity:1;color:var(--ink)}
+.lb .prev{left:max(4px,env(safe-area-inset-left,0px))}
+.lb .next{right:max(4px,env(safe-area-inset-right,0px))}
+.lb .lbdots{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);left:50%;transform:translateX(-50%);flex:none;flex-wrap:nowrap}
 
 
 /* Book typesetting: paragraphs separated by first-line indents, not space; no indent after headings, quotes,
@@ -487,9 +490,9 @@ footer.site>*{position:relative;z-index:1}
 <div class="lb" hidden role="dialog" aria-modal="true" aria-label="Page viewer">
   <img alt="">
   <button class="btn close" type="button" aria-label="Close">&#215;</button>
-  <button class="btn prev" type="button" aria-label="Previous page">&#8592;</button>
-  <span class="lbcount"></span>
-  <button class="btn next" type="button" aria-label="Next page">&#8594;</button>
+  <button class="nav prev" type="button" aria-label="Previous page"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M16 8 6 24l10 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <div class="dots lbdots" role="group" aria-label="Choose page"></div>
+  <button class="nav next" type="button" aria-label="Next page"><svg viewBox="0 0 24 48" aria-hidden="true" focusable="false"><path d="M8 8l10 16-10 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 </div>
 
 <script>
@@ -630,8 +633,9 @@ footer.site>*{position:relative;z-index:1}
   // Lightbox
   // While the page viewer is open, everything behind it is taken out of reach so keyboard and screen-reader focus stays inside.
   function setInert(on){ ['main','footer.site','.skip'].forEach(function(q){ var el=document.querySelector(q); if(el) el.inert = on; }); }
-  var lb = document.querySelector('.lb'), lbImg = lb.querySelector('img'), lbCount = lb.querySelector('.lbcount'), li = 0, opener;
-  function show(i){ li = (i+n)%n; var s = slides[li].querySelector('img'); lbImg.src = s.src; lbImg.alt = s.alt; lbCount.textContent = (li+1)+' / '+n; unzoom(false); }
+  var lb = document.querySelector('.lb'), lbImg = lb.querySelector('img'), lbDots = lb.querySelector('.lbdots'), li = 0, opener;
+  slides.forEach(function(s,i){ var d=document.createElement('button'); d.type='button'; d.setAttribute('aria-label','Page '+(i+1)); d.addEventListener('click', function(){ show(i) }); lbDots.appendChild(d); });
+  function show(i){ li = (i+n)%n; var s = slides[li].querySelector('img'); lbImg.src = s.src; lbImg.alt = s.alt; lbDots.querySelectorAll('button').forEach(function(d,j){ d.setAttribute('aria-current', j===li) }); unzoom(false); }
   function open(i){ opener = document.activeElement; show(i); lb.hidden = false; setInert(true); document.body.style.overflow='hidden'; lb.querySelector('.close').focus(); }
   function close(){ lb.hidden = true; unzoom(false); setInert(false); document.body.style.overflow=''; go(li); if(opener) opener.focus(); }
   slides.forEach(function(s,i){ s.addEventListener('click', function(){ open(i) }); });
