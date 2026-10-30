@@ -90,7 +90,7 @@ article>.welcome+.intro{margin-top:var(--s2);text-indent:0}
 hr{border:0;border-top:1px solid var(--rule);margin-block:var(--s2)}
 
 .lead::first-letter{font-family:var(--serif);font-weight:600;float:left;font-size:3.3em;line-height:.8;padding:.04em .08em 0 0;margin-top:.02em}
-blockquote{font-style:italic;color:var(--soft);font-size:.95em;padding:0 clamp(0px,3vw,32px)}
+blockquote{font-style:normal;color:var(--soft);font-size:.95em;margin-left:0;margin-right:0;padding:0 0 0 clamp(16px,3vw,28px);border-left:2px solid var(--rule)}
 
 /* pull quotes */
 .pull{margin:var(--s3) auto;max-width:var(--wide);text-align:center;display:flex;flex-direction:column;gap:var(--s1)}
@@ -147,7 +147,7 @@ figcaption{font-family:var(--serif);font-style:italic;font-weight:400;color:var(
 
 
 /* Book typesetting: paragraphs separated by first-line indents, not space; no indent after headings, quotes,
-   images or breaks; justified and hyphenated where the column is wide enough; old-style figures. */
+   images or breaks; left-aligned with even word spacing (easier for dyslexic readers); old-style figures. */
 article{display:block}
 article>*{margin-top:var(--s2);margin-bottom:0}
 article>:first-child{margin-top:0}
@@ -159,7 +159,7 @@ article>p,article>blockquote,.bib{font-variant-numeric:oldstyle-nums proportiona
 .lead .sc{font-variant-caps:all-small-caps;letter-spacing:.06em}
 .orn{text-align:center;color:var(--soft);font-size:1.1em;letter-spacing:.5em;margin-top:var(--s3)!important;margin-bottom:var(--s3);padding-left:.5em}
 @media (min-width:700px){
-  article>p,article>blockquote{text-align:justify;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:6 2 2}
+  article>p,article>blockquote{text-align:left;hyphens:manual;-webkit-hyphens:manual}
 }
 article>h2.sec{color:var(--head);font-family:var(--keedy);font-weight:700;font-size:clamp(30.11px,4.51vw,45.16px);line-height:1.1;text-align:center;text-wrap:balance;max-width:var(--text);margin:var(--s4) auto var(--s2)}
 article strong{font-weight:700;color:var(--head)}
