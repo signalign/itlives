@@ -119,6 +119,7 @@ figure{margin:var(--s3) 0;display:flex;flex-direction:column;gap:var(--s2);align
 figcaption{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--soft);font-size:.9em;line-height:1.5;text-align:center;max-width:30em;text-wrap:balance}
 .frame{width:100%;background:#1c1c1b;display:flex;justify-content:center;padding:clamp(16px,4vw,40px)}
 .frame img{width:auto;max-height:min(80vh,820px)}
+figure>video.hero{display:block;width:100%;height:auto;aspect-ratio:1080/988}
 figure>img.page{width:100%;max-width:var(--text);height:auto}
 
 /* video: poster that turns into a YouTube player */
@@ -285,7 +286,10 @@ footer.site>*{position:relative;z-index:1}
   </header>
 
   <figure>
-    <img src="assets/hero.jpg" alt="Collage on a mustard-yellow ground: a zombie with pale skin and blood-flecked arms, wearing a black T-shirt that reads “I couldn’t kern less.” and carrying a laptop, stands in front of a convoy of transport trucks with a “Freedom” sign. Behind it are Parliament’s Centre Block, Vancouver’s Harbour Centre tower and a SkyTrain, and a line drawing of a tidy kitchen from Living in the New Houses." width="1600" height="1459" fetchpriority="high">
+    <video class="hero" autoplay muted loop playsinline preload="auto" poster="assets/hero-loop-poster.jpg" width="1080" height="988" aria-label="Collage on a mustard-yellow ground: a zombie with pale skin and blood-flecked arms, wearing a black T-shirt that reads “I couldn’t kern less.” and carrying a laptop, slowly reaches a hand toward the reader and lowers it again, in front of a convoy of transport trucks. Behind it are Parliament’s Centre Block, Vancouver’s Harbour Centre tower and a SkyTrain, and a line drawing of a tidy kitchen from Living in the New Houses.">
+      <source src="assets/hero-loop.webm" type="video/webm">
+      <source src="assets/hero-loop.mp4" type="video/mp4">
+    </video>
   </figure>
 
   <p class="intro">This essay was originally published in the first edition of <a href="https://www.itsnicethat.com/articles/the-imperfect-index-publication-graphic-design-project-170225" target="_blank" rel="noopener">An Imperfect Index</a> (Sold out).</p>
@@ -501,6 +505,14 @@ footer.site>*{position:relative;z-index:1}
 
 <script>
 (function(){
+  // Hero loop: hold on the first frame for readers who ask for reduced motion.
+  var hero = document.querySelector('video.hero');
+  if(hero && window.matchMedia){
+    var rm = window.matchMedia('(prefers-reduced-motion: reduce)');
+    function applyMotion(){ if(rm.matches){ hero.removeAttribute('autoplay'); hero.pause(); hero.currentTime = 0; } else { var p = hero.play(); if(p && p.catch) p.catch(function(){}); } }
+    applyMotion();
+    if(rm.addEventListener) rm.addEventListener('change', applyMotion);
+  }
   // Poster images that may be blocked (YouTube thumbnail in a preview) fall back to a local image.
   document.querySelectorAll('img[data-fallback]').forEach(function(img){
     function fb(){ if(img.dataset.fallback && img.src.indexOf(img.dataset.fallback)<0){ img.src = img.dataset.fallback; } }
