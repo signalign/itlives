@@ -71,7 +71,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset
 
 article{max-width:var(--wide);margin-inline:auto;padding-block:var(--s4);display:flex;flex-direction:column;gap:var(--s2)}
 /* text blocks keep to the measure; media blocks use the full wide column */
-article>p,article>blockquote,article>hr,article>.bib,article>.intro,article>.readtime{width:100%;max-width:var(--text);margin-inline:auto}
+article>p,article>blockquote,article>hr,article>.bib,article>.intro,article>.readtime,article>.welcome{width:100%;max-width:var(--text);margin-inline:auto}
 article>p,article>blockquote{margin-block:0}
 
 /* title block */
@@ -81,6 +81,10 @@ article>p,article>blockquote{margin-block:0}
 .titleblock .by{font-size:.95em;font-style:italic;color:var(--soft);margin:0}
 
 
+/* welcome: the first words under the hero, set a touch larger than the essay and centred like the title */
+article>.welcome{margin-top:var(--s3);text-align:center;font-size:1.08em;line-height:1.55;text-wrap:balance;color:var(--ink);hyphens:manual;-webkit-hyphens:manual;text-indent:0}
+article>.intro{text-wrap:balance;hyphens:manual;-webkit-hyphens:manual}
+article>.welcome+.intro{margin-top:var(--s2);text-indent:0}
 .intro{color:var(--soft);font-size:.95em;font-style:italic;text-align:center;margin:0}
 hr{border:0;border-top:1px solid var(--rule);margin-block:var(--s2)}
 
@@ -257,6 +261,7 @@ footer.site>*{position:relative;z-index:1}
     <img src="assets/hero.jpg" alt="Collage on a mustard-yellow ground: a zombie with pale skin and blood-flecked arms, wearing a black T-shirt that reads “I couldn’t kern less.” and carrying a laptop, stands in front of a convoy of transport trucks with a “Freedom” sign. Behind it are Parliament’s Centre Block, Vancouver’s Harbour Centre tower and a SkyTrain, and a line drawing of a tidy kitchen from Living in the New Houses." width="1600" height="1459" fetchpriority="high">
   </figure>
 
+  <p class="welcome">Welcome to “itlives!” An essay that combines words, animation, and zombies into a hybrid mix that hopefully inspires designers to use their practice in ways that ask bigger questions about histories, ideologies, and how they’ve shaped the world. Enjoy!</p>
   <p class="intro">This essay was originally published in the first edition of <a href="https://www.itsnicethat.com/articles/the-imperfect-index-publication-graphic-design-project-170225" target="_blank" rel="noopener">An Imperfect Index</a> (Sold out).</p>
   <p class="readtime">15 min read</p>
 
