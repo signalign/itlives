@@ -1,9 +1,34 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-CA">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>It Lives! Version 2</title>
+<title>It Lives! Zombie Modernism and White Supremacy in Canadian Graphic Design Culture – Stephan Rosger</title>
+<meta name="description" content="Stephan Rosger’s essay on how modernism refuses to die in Canadian graphic design, and the whiteness of the canon built around it. Read it, or watch the film.">
+<meta name="author" content="Stephan Rosger">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://itlives.ca/">
+<meta name="theme-color" content="#141413">
+<!-- link previews (Facebook, LinkedIn, iMessage, Slack, Discord, Threads...) -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="It Lives!">
+<meta property="og:locale" content="en_CA">
+<meta property="og:url" content="https://itlives.ca/">
+<meta property="og:title" content="It Lives! Zombie Modernism and White Supremacy in Canadian Graphic Design Culture">
+<meta property="og:description" content="Stephan Rosger’s essay on how modernism refuses to die in Canadian graphic design, and the whiteness of the canon built around it. Read it, or watch the film.">
+<meta property="og:image" content="https://itlives.ca/assets/og-image.jpg">
+<meta property="og:image:secure_url" content="https://itlives.ca/assets/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Collage of a zombie in a black T-shirt reading “I couldn’t kern less.” against a mustard-yellow ground, with Vancouver’s Harbour Centre behind.">
+<meta property="article:author" content="Stephan Rosger">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="It Lives! Zombie Modernism and White Supremacy in Canadian Graphic Design Culture">
+<meta name="twitter:description" content="Stephan Rosger’s essay on how modernism refuses to die in Canadian graphic design, and the whiteness of the canon built around it. Read it, or watch the film.">
+<meta name="twitter:image" content="https://itlives.ca/assets/og-image.jpg">
+<meta name="twitter:image:alt" content="Collage of a zombie in a black T-shirt reading “I couldn’t kern less.” against a mustard-yellow ground.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "It Lives! Zombie Modernism and White Supremacy in Canadian Graphic Design Culture", "description": "Stephan Rosger’s essay on how modernism refuses to die in Canadian graphic design, and the whiteness of the canon built around it. Read it, or watch the film.", "image": ["https://itlives.ca/assets/og-image.jpg", "https://itlives.ca/assets/hero.jpg"], "author": {"@type": "Person", "name": "Stephan Rosger", "url": "https://www.linkedin.com/in/stephanrosger/", "sameAs": ["https://www.instagram.com/roswerks/", "https://www.threads.com/@roswerks", "https://www.linkedin.com/in/stephanrosger/"]}, "url": "https://itlives.ca/", "mainEntityOfPage": "https://itlives.ca/", "inLanguage": "en-CA", "wordCount": 3440, "timeRequired": "PT15M", "dateModified": "2026-10-29", "about": ["Canadian graphic design", "Modernism", "Design history", "Design criticism"], "isPartOf": {"@type": "Book", "name": "An Imperfect Index", "bookEdition": "First edition"}, "video": {"@type": "VideoObject", "name": "It Lives! (abridged film)", "description": "The essay as one abridged film.", "embedUrl": "https://www.youtube.com/embed/p1WEezb7tm4", "contentUrl": "https://youtu.be/p1WEezb7tm4", "thumbnailUrl": "https://itlives.ca/assets/og-image.jpg"}}</script>
 <link rel="stylesheet" href="https://use.typekit.net/ijy7ugy.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,10 +38,14 @@
    Text sits in a narrow reading measure; videos and images step out wider. One spacing scale drives every gap. */
 :root{
   color-scheme:dark;
-  --ground:#000000;
-  --ink:#ffffff;
-  --soft:#9a9a9a;       /* intro + quotations */
-  --rule:#333333;
+  /* Reading contrast: pure white on pure black (21:1) makes letters glow and halo, worst for the many readers
+     with astigmatism, and tires the eye over a long read. A near-black ground with a warm off-white ink keeps
+     contrast well above WCAG AAA while letting the letterforms sit still. */
+  --ground:#141413;
+  --ink:#e6e2da;        /* body text, 14.3:1 */
+  --head:#f1ede5;       /* headings, a step brighter for hierarchy, 15.8:1 */
+  --soft:#aca79e;       /* intro, quotations, captions, 7.7:1 (AAA) */
+  --rule:#333230;
   --black:#000;
   --keedy:"keedy-sans","Arial Rounded MT Bold","Helvetica Neue",Arial,sans-serif;
   --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
@@ -31,23 +60,24 @@
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
-html{-webkit-text-size-adjust:100%}
-body{background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:clamp(21.51px,0.57vw + 19.6px,24.66px);line-height:1.6;
+html{-webkit-text-size-adjust:100%;overflow-x:clip}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:clamp(17px,0.62vw + 14.68px,20.96px);line-height:1.6;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
   padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
-a:hover{color:#fff;text-decoration-thickness:2px}
+a:hover{color:var(--head);text-decoration-thickness:2px}
 a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 
 article{max-width:var(--wide);margin-inline:auto;padding-block:var(--s4);display:flex;flex-direction:column;gap:var(--s2)}
 /* text blocks keep to the measure; media blocks use the full wide column */
-article>p,article>blockquote,article>hr,article>.bib,article>.intro{width:100%;max-width:var(--text);margin-inline:auto}
+article>p,article>blockquote,article>hr,article>.bib,article>.intro,article>.readtime{width:100%;max-width:var(--text);margin-inline:auto}
 article>p,article>blockquote{margin-block:0}
 
 /* title block */
 .titleblock{text-align:center;display:flex;flex-direction:column;align-items:center;gap:var(--s1);margin-bottom:var(--s2)}
-.titleblock h1{font-family:var(--keedy);font-weight:700;font-size:clamp(75.9px,17.71vw,177.1px);line-height:.95;margin:0;letter-spacing:-.01em}
-.titleblock .sub{font-family:var(--serif);font-weight:600;font-size:clamp(27.83px,4.55vw,43.01px);line-height:1.15;margin:0;max-width:20em;text-wrap:balance}
+.titleblock h1{color:var(--head);font-family:var(--keedy);font-weight:700;font-size:clamp(64.52px,15.05vw,150.53px);line-height:.95;margin:0;letter-spacing:-.01em}
+.titleblock .sub{font-family:var(--serif);font-weight:600;font-size:clamp(23.66px,3.87vw,36.56px);line-height:1.15;margin:0;max-width:20em;text-wrap:balance}
 .titleblock .by{font-size:.95em;font-style:italic;color:var(--soft);margin:0}
 
 
@@ -59,14 +89,14 @@ blockquote{font-style:italic;color:var(--soft);font-size:.95em;padding:0 clamp(0
 
 /* pull quotes */
 .pull{margin:var(--s3) auto;max-width:var(--wide);text-align:center;display:flex;flex-direction:column;gap:var(--s1)}
-.pull p{margin:0;font-family:var(--keedy);font-weight:700;font-size:clamp(30.36px,4.55vw,45.54px);line-height:1.22;text-wrap:balance}
+.pull p{margin:0;font-family:var(--keedy);font-weight:700;font-size:clamp(25.81px,3.87vw,38.71px);line-height:1.22;text-wrap:balance}
 
 .pull cite{font-style:italic;color:var(--soft);font-size:.9em}
 
 /* figures */
 figure{margin:var(--s3) 0;display:flex;flex-direction:column;gap:var(--s2);align-items:center}
 figcaption{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--soft);font-size:.9em;line-height:1.5;text-align:center;max-width:30em;text-wrap:balance}
-.frame{width:100%;background:#111;display:flex;justify-content:center;padding:clamp(16px,4vw,40px)}
+.frame{width:100%;background:#1c1c1b;display:flex;justify-content:center;padding:clamp(16px,4vw,40px)}
 .frame img{width:auto;max-height:min(80vh,820px)}
 
 /* video: poster that turns into a YouTube player */
@@ -124,28 +154,88 @@ article>p,article>blockquote,.bib{font-variant-numeric:oldstyle-nums proportiona
 .lead .sc{font-variant-caps:all-small-caps;letter-spacing:.06em}
 .orn{text-align:center;color:var(--soft);font-size:1.1em;letter-spacing:.5em;margin-top:var(--s3)!important;margin-bottom:var(--s3);padding-left:.5em}
 @media (min-width:700px){
-  article>p,article>blockquote{text-align:justify;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:7 3 3}
+  article>p,article>blockquote{text-align:justify;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:6 2 2}
 }
-article>.cn{width:fit-content;max-width:100%;margin-left:auto;margin-right:auto;font-size:.8em;line-height:1.5;color:var(--soft);padding:.6em 1em;border:1px solid var(--rule);text-align:center}
-article>.cn span{font-weight:600;color:var(--ink)}
-article>h2.sec{font-family:var(--keedy);font-weight:700;font-size:clamp(35.42px,5.31vw,53.13px);line-height:1.1;text-align:center;text-wrap:balance;max-width:var(--text);margin:var(--s4) auto var(--s2)}
-article strong{font-weight:700;color:#fff}
-footer.site{max-width:var(--wide);margin:0 auto;padding-block:var(--s3) var(--s4);border-top:1px solid var(--rule);display:flex;flex-direction:column;align-items:center;gap:var(--s1);text-align:center}
+article>h2.sec{color:var(--head);font-family:var(--keedy);font-weight:700;font-size:clamp(30.11px,4.51vw,45.16px);line-height:1.1;text-align:center;text-wrap:balance;max-width:var(--text);margin:var(--s4) auto var(--s2)}
+article strong{font-weight:700;color:var(--head)}
+footer.site{max-width:var(--wide);margin:0 auto;padding-block:var(--s3);border-top:1px solid var(--rule);display:flex;flex-direction:column;align-items:center;gap:var(--s1);text-align:center}
 footer.site .who{font-family:var(--keedy);font-weight:700;font-size:1.5em;line-height:1.1;margin:0}
 footer.site nav{display:flex;flex-wrap:wrap;justify-content:center;gap:4px var(--s2);font-size:.9em}
 footer.site nav a{padding:6px 2px;user-select:text}
 footer.site .copy{margin:0;font-size:.8em;color:var(--soft)}
 /* "watch instead": the whole essay as one film, offered ~870 words in, between sections.
    Equal --s4 above and below (it collapses with the next heading's --s4), short hairlines frame it as an aside. */
-article>.watch{max-width:var(--text);margin:var(--s4) auto;padding-block:var(--s3);position:relative;display:flex;flex-direction:column;align-items:center;gap:.35em;text-align:center}
-.watch::before,.watch::after{content:"";position:absolute;left:50%;width:4em;border-top:1px solid var(--rule);transform:translateX(-50%)}
-.watch::before{top:0}.watch::after{bottom:0}
-.watch .ask{margin:0;font-style:italic;color:var(--soft);font-size:.95em}
-.watch .go{font-family:var(--keedy);font-weight:700;font-size:clamp(25.3px,3.8vw,37.95px);line-height:1.15;text-wrap:balance}
-.watch a.go[href]{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.18em}
-.watch a.go[href]:hover{text-decoration-thickness:3px}
-.watch a.go:not([href]){text-decoration:none}
-.watch .soon{margin:0;font-size:.75em;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
+article>.watch{width:100%;max-width:40rem;margin:var(--s4) auto;padding:clamp(26px,4.5vw,38px) clamp(22px,5vw,44px);
+  position:relative;display:flex;flex-direction:column;align-items:center;gap:.55em;text-align:center;
+  border:1px solid var(--rule);border-radius:12px;background:#181817;transition:border-color .2s,background-color .2s}
+.watch:hover{border-color:#4b4943;background:#1b1b1a}
+.watch .ask{margin:0;font-style:italic;color:var(--soft);font-size:.95em;line-height:1.4;text-wrap:balance}
+.watch .go{font-family:var(--keedy);font-weight:700;font-size:clamp(21.5px,3.23vw,32.26px);line-height:1.2;text-wrap:balance;color:var(--head);text-decoration:none}
+/* the whole card is the link; the arrow is drawn to match the Back to top arrow and never wraps away from its word */
+.watch .go::after{content:"";position:absolute;inset:0;border-radius:inherit}
+.watch .go .nw{white-space:nowrap}
+.watch .go svg{width:.8em;height:.8em;margin-left:.3em;vertical-align:-.07em;transition:transform .2s ease}
+.watch:hover .go svg{transform:translateX(3px)}
+.watch .go:focus-visible{outline:none}
+.watch:has(.go:focus-visible){outline:2px solid var(--ink);outline-offset:4px}
+/* reading time under the intro */
+article>.readtime{margin-top:var(--s1);text-align:center;color:var(--soft);font-size:.8em;letter-spacing:.12em;text-transform:uppercase}
+
+/* reading progress: a hairline across the top of the screen that grows left to right as you read the essay */
+.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:40;pointer-events:none}
+.progress span{display:block;height:100%;width:100%;background:var(--ink);opacity:.55;transform:scaleX(0);transform-origin:0 50%;will-change:transform}
+
+/* back to top, above the footer rule */
+/* the button sits exactly halfway between the last reference and the footer rule */
+main>article{padding-bottom:0}
+.totop{display:flex;justify-content:center;padding-block:var(--s4)}
+.top{appearance:none;border:2px solid var(--rule);border-radius:999px;background:transparent;color:var(--ink);font:inherit;font-size:.85em;font-weight:600;line-height:1;
+  display:inline-flex;align-items:center;gap:.5em;padding:.85em 1.5em;min-height:44px;cursor:pointer;transition:background-color .15s,color .15s,border-color .15s}
+.top:hover{border-color:var(--soft);color:var(--head);background:rgba(241,237,229,.08)}
+.top:active{background:rgba(241,237,229,.14)}
+.top:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.top:focus-visible{outline:none}.top:focus-visible .disc{outline:2px solid #fff;outline-offset:4px}
+.top-l{font-size:.75em;letter-spacing:.12em;text-transform:uppercase;transition:color .15s}
+
+/* accessibility helpers: invisible until needed */
+.skip{position:absolute;left:12px;top:-100px;z-index:60;background:var(--head);color:var(--ground);padding:.6em 1em;text-decoration:none;font-size:.9em}
+.skip:focus{top:12px}
+.sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+h1[tabindex="-1"]:focus,h2[tabindex="-1"]:focus{outline:none}
+/* page dots keep their slim look but get a full-size touch target */
+.dots button{background-clip:content-box;padding:10px 0;height:23px;box-sizing:border-box}
+@media (prefers-reduced-motion:reduce){.progress span{will-change:auto}}
+@media (forced-colors:active){.progress span{background:CanvasText;opacity:1}.top{border-color:ButtonText;color:ButtonText}}
+/* note numbers: small, quiet, and a real link to the matching reference; the reference links back */
+sup.fn{font-size:.62em;line-height:0;vertical-align:super;margin-left:.06em;font-variant-numeric:lining-nums tabular-nums;font-style:normal;text-indent:0}
+sup.fn a{color:var(--soft);font-weight:600;text-decoration:none;padding:.3em .22em;border-radius:2px}
+sup.fn a:hover{color:var(--head);text-decoration:underline}
+[id^="cite-"],.bib li{scroll-margin-top:28vh}
+/* no box or highlight when you land on a note; keyboard users get an underline instead of the focus ring */
+sup.fn a:focus,sup.fn a:focus-visible,.bib .back:focus{outline:none}
+sup.fn a:focus-visible,.bib .back:focus-visible{text-decoration:underline;text-decoration-thickness:2px;color:var(--head)}
+/* the number you came back to: bold and underlined until your next touch, click, key or scroll */
+sup.fn a.lit{font-weight:700;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:.2em}
+.bib li{transition:color .6s ease}
+.bib li.lit,.bib li.lit .back{color:var(--ink);transition:color .2s ease}
+.bib .back{color:var(--soft);text-decoration:none;padding:.2em .35em;white-space:nowrap}
+.bib .back:hover{color:var(--head)}
+/* Phones: a narrow column reads best ragged-right. Long words may hyphenate (never words under 7 letters,
+   never more than two hyphens in a row) so lines run evenly to the edge instead of breaking short. */
+/* Zombies rising from the bottom edge of the page, on transparent backgrounds straight over the page colour.
+   (Their near-black cut-out fringe was faded to transparent, so no dark outline shows against the page.) */
+/* Pulled up under the footer so the raised hands reach to just below the copyright line.
+   The highest fingertip sits 5.4% down the image, so the pull scales with the image's width. */
+.grave{position:relative;z-index:0;left:50%;width:100vw;margin-left:-50vw;line-height:0;display:flex;justify-content:center;pointer-events:none;
+  margin-top:calc(-1 * var(--s3) - min(1600px,100vw) * .333 * .054 + 6px)}
+footer.site>*{position:relative;z-index:1}
+.grave picture,.grave img{display:block;width:min(1600px,100%);height:auto}
+@media (max-width:699px){
+  article>p,article>blockquote{hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:7 3 3;-webkit-hyphenate-limit-lines:2;hyphenate-limit-lines:2}
+}
+@media (max-width:430px){
+  body{padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+}
 @media (max-width:560px){
   figure{margin:var(--s2) 0}
   .pull{margin:var(--s2) auto}
@@ -153,6 +243,9 @@ article>.watch{max-width:var(--text);margin:var(--s4) auto;padding-block:var(--s
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 
+<a class="skip" href="#essay">Skip to the essay</a>
+<div class="progress" aria-hidden="true"><span></span></div>
+<main id="top">
 <article lang="en">
   <header class="titleblock">
     <h1>it Lives!</h1>
@@ -161,30 +254,29 @@ article>.watch{max-width:var(--text);margin:var(--s4) auto;padding-block:var(--s
   </header>
 
   <figure>
-    <img src="assets/hero.jpg" alt="Collage of a zombie in an I couldn't kern less T-shirt holding a laptop, over a convoy of trucks, Parliament, Vancouver's Harbour Centre and a Living in the New Houses illustration, on a yellow ground" width="1600" height="1459" fetchpriority="high">
+    <img src="assets/hero.jpg" alt="Collage on a mustard-yellow ground: a zombie with pale skin and blood-flecked arms, wearing a black T-shirt that reads “I couldn’t kern less.” and carrying a laptop, stands in front of a convoy of transport trucks with a “Freedom” sign. Behind it are Parliament’s Centre Block, Vancouver’s Harbour Centre tower and a SkyTrain, and a line drawing of a tidy kitchen from Living in the New Houses." width="1600" height="1459" fetchpriority="high">
   </figure>
 
-  <p class="intro">This essay was published in the first edition of <a href="https://www.itsnicethat.com/articles/the-imperfect-index-publication-graphic-design-project-170225" target="_blank" rel="noopener">An Imperfect Index</a>. During periods of writers-block, I started to make digital colleges based on the essay. Those collages eventually evolved into a number of narrated video excerpts, which can be viewed throughout this piece.</p>
-
-  <div class="cn"><span>Content note:</span> This essay mentions suicide.</div>
+  <p class="intro">This essay was originally published in the first edition of <a href="https://www.itsnicethat.com/articles/the-imperfect-index-publication-graphic-design-project-170225" target="_blank" rel="noopener">An Imperfect Index</a> (Sold out).</p>
+  <p class="readtime">15 min read</p>
 
   <div class="orn" role="separator" aria-hidden="true">*&#8202;&#8202;*&#8202;&#8202;*</div>
 
-  <h2 class="sec">Redrawing the Map</h2>
+  <h2 class="sec" id="essay" tabindex="-1">Redrawing the Map</h2>
 
   <p class="lead">T<span class="sc">here’s no question</span> that the 60s were a time of significant cultural change in Canada. The federal government enacted the Canadian Bill of Rights, which expanded the rights and freedoms of minorities, including indigenous peoples. Voting rights were expanded to include minorities. The number of immigrants from Asia and other regions of the world increased. Hard and fast, the changes kept coming and the bubble of Canada’s European colonial hegemony started to burst. It put many Canadians on edge, so much so that when modernism came along with its promise of singularity reinforced by rationalist universalism, they welcomed it with open arms. Modernism was a way for Canadians to filter out the complexity that came with the country’s growing plurality and gave them an abstract sense of unity, simplicity, and clarity. As researcher and literary theorist, Terry Eagleton explains in Slavoj Žižek’s book Mapping Ideology (2012):</p>
 
-  <blockquote>“[Ideology] springs from a situation in which social life has become too complex to be grasped as a whole by everyday consciousness. There is thus the need for an imaginary model of it, which will bear something of the oversimplifying relation to social reality that a map does to an actual terrain.”</blockquote>
+  <blockquote>“[Ideology] springs from a situation in which social life has become too complex to be grasped as a whole by everyday consciousness. There is thus the need for an imaginary model of it, which will bear something of the oversimplifying relation to social reality that a map does to an actual terrain.”<sup class="fn"><a href="#ref-1" id="cite-1-1" aria-label="Reference 1">1</a></sup></blockquote>
 
   <figure>
     <a class="video" data-yt="EVSMAgHrdIw" href="https://youtu.be/EVSMAgHrdIw" target="_blank" rel="noopener">
-      <img src="assets/poster-map.jpg" alt="Canada's Modernist Map video" width="1600" height="900">
+      <img src="assets/poster-map.jpg" loading="lazy" alt="Play video: Canada’s Modernist Map. Poster shows a grid of twenty Canadian modernist logos, including CN, the CBC gem, Air Canada, TD, Bell, Roots and the Montreal 1976 Olympics." width="1600" height="900">
       <span class="play" aria-hidden="true"></span>
     </a>
     <figcaption>Canada’s Modernist Map</figcaption>
   </figure>
 
-  <p>Presently, relics of Canada’s modernist map can be seen at every turn, awkwardly reminding us of the modernist utopia we once hoped we could be. But as immigrants open everything from bodegas to medical clinics within our decaying modernist architecture, and design struggles to negotiate its role beyond corporate identity and marketing, it’s clear that the Canada of today couldn’t be further away from utopia. If anything, our cultural terrain has become more difficult to navigate now than ever before. Over the past few years alone we’ve seen a lot happen: from a global reckoning of inequality that has empowered us to unite against racism and hate, to the discovery of thousands of indigenous children in unmarked graves, to white Canadian nationalists occupying our nation’s capital for ‘freedom.’ Climate change; The global pandemic; Ukraine; Palestine; WWIII. If designers weren’t fully convinced that the oversimplified ideological map of modernism was useless before, today’s cultural realities should have them throwing that map into an incinerator. Modernism arose out of that same mix of complexity and chaos. Will designers allow history to repeat itself, or will they redraw the map?</p>
+  <p>Presently, relics of Canada’s modernist map can be seen at every turn, awkwardly reminding us of the modernist utopia we once hoped we could be. But as immigrants open everything from bodegas to medical clinics within our decaying modernist architecture, and design struggles to negotiate its role beyond corporate identity and marketing, it’s clear that the Canada of today couldn’t be further away from utopia. If anything, our cultural terrain has become more difficult to navigate now than ever before. Over the past few years alone we’ve seen a lot happen: from a global reckoning of inequality that has empowered us to unite against racism and hate, to the discovery of thousands of indigenous children in unmarked graves, to white Canadian nationalists occupying our nation’s capital for ‘freedom.’ Climate change; The global pandemic; Ukraine; Palestine; A.I.; WWIII. If designers weren’t fully convinced that the oversimplified ideological map of modernism was useless before, today’s cultural realities should have them throwing that map into an incinerator. Modernism arose out of that same mix of complexity and chaos. Will designers allow history to repeat itself, or will they redraw the map?</p>
 
   <p>Clues to the answer may be found in the historical canon of Canadian graphic design. For those not familiar with it, it tells the story of modernist graphic design, its role in pulling us out of the shadow of British rule, and thrusting us into a new ‘golden era’ filled with ‘optimism, growth, and modernity.’ But modernism is not experienced the same by everyone. While this glorified portrayal of modernism remains central to the canon’s ‘glowing heart’, those on the dark side of modernity continue to dwell in substandard conditions created by the same ‘glowing’ ideology that blinds Canadian design. Adding to modernism’s complexity are its many definitions and interpretations, but for this essay, I’d like to focus on modernism in its relation to ideology. More specifically, the driving forces behind modernist ideology, such as universality, rationalism, singular answers, and progress. My intention is, that while modernism in the context of corporate identity may appear different from modernism in the context of things like governance and housing policy (more on that later), the same core values are at play.</p>
 
@@ -192,11 +284,11 @@ article>.watch{max-width:var(--text);margin:var(--s4) auto;padding-block:var(--s
 
   <blockquote>“In most areas of cultural production like art, architecture, music, and literature, modernism was just one more event in a continuing life cycle. Graphic design, on the other hand, did not have sufficient time to develop a mature sense of self—the umbilical cord had not been severed yet. So when modernism died, many designers’ ideology died with it. However, they did not go peacefully into that dark night. They refused to acknowledge their own ideological demise, and they continue to haunt the living, moaning and groaning because they no longer belong to this world. That is the fate of the Zombie Modernist, the living dead who design among us”</blockquote>
 
-  <p>writes Mr. Keedy in his 1995 essay <a href="https://readings.design/PDF/Keedy,%20Jeffrey%20%E2%80%94%20Zombie%20Modernism%20(1995).pdf" target="_blank" rel="noopener"><i>Zombie Modernism</i></a> (1995). To describe what has happened in Canadian design since Mr.Keedy penned that essay almost 30 years ago can be found in the essay’s first two words: “it Lives!” Zombie Modernism is (un)alive and well here in Canada, no thanks in part to Blair Thomson’s <a href="https://canadamodern.org" target="_blank" rel="noopener">Canada Modern</a> archive and Greg Durrell’s documentary design film, <i>Design Canada</i> (2018).</p>
+  <p>writes Mr. Keedy in his 1995 essay <a href="https://readings.design/PDF/Keedy,%20Jeffrey%20%E2%80%94%20Zombie%20Modernism%20(1995).pdf" target="_blank" rel="noopener"><i>Zombie Modernism</i></a> (1995).<sup class="fn"><a href="#ref-2" id="cite-2-1" aria-label="Reference 2">2</a></sup> To describe what has happened in Canadian design since Mr.Keedy penned that essay almost 30 years ago can be found in the essay’s first two words: “it Lives!” Zombie Modernism is (un)alive and well here in Canada, no thanks in part to Blair Thomson’s <a href="https://canadamodern.org" target="_blank" rel="noopener">Canada Modern</a> archive and Greg Durrell’s documentary design film, <i>Design Canada</i> (2018).</p>
 
   <figure>
     <a class="video" data-yt="MtWUsHmvZ68" data-start="29" href="https://www.youtube.com/watch?v=MtWUsHmvZ68&amp;t=29s" target="_blank" rel="noopener">
-      <img src="assets/poster-keedy.jpg" alt="Zombie Modernism video" width="1600" height="900" loading="lazy">
+      <img src="assets/poster-keedy.jpg" alt="Play video: Zombie Modernism. Poster shows a black-and-white portrait of Mr. Keedy in dark-rimmed glasses, set against pages of his 1995 essay." width="1600" height="900" loading="lazy">
       <span class="play" aria-hidden="true"></span>
     </a>
     <figcaption>Zombie Modernism</figcaption>
@@ -207,7 +299,7 @@ article>.watch{max-width:var(--text);margin:var(--s4) auto;padding-block:var(--s
   <!-- WATCH INSTEAD — the complete film on YouTube. -->
   <div class="watch" id="watch">
     <p class="ask">Not up for another 2,500 words today?</p>
-    <a class="go" href="https://youtu.be/p1WEezb7tm4" target="_blank" rel="noopener">Watch it as one film&#8202;&#8594;</a>
+    <a class="go" href="https://youtu.be/p1WEezb7tm4" target="_blank" rel="noopener">Watch the video essay <span class="nw">version<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4.5 12h14.5M13 5.5 19.5 12 13 18.5" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
   </div>
 
   <h2 class="sec">A Golden Era for Who?</h2>
@@ -234,7 +326,7 @@ article>.watch{max-width:var(--text);margin:var(--s4) auto;padding-block:var(--s
 
   <figure>
     <a class="video" data-yt="Y143B0tl69M" href="https://youtu.be/Y143B0tl69M" target="_blank" rel="noopener">
-      <img src="assets/poster-commute.jpg" alt="Commute to the Colonial Outpost video" width="1600" height="900" loading="lazy">
+      <img src="assets/poster-commute.jpg" alt="Play video: Commute to the Colonial Outpost. Poster shows a smiling crowd lined up under a cinema marquee reading “9:00 Design Canada.”" width="1600" height="900" loading="lazy">
       <span class="play" aria-hidden="true"></span>
     </a>
     <figcaption>Commute to the Colonial Outpost</figcaption>
@@ -246,17 +338,17 @@ article>.watch{max-width:var(--text);margin:var(--s4) auto;padding-block:var(--s
 
   <p>What struck me even more was the lack of criticism the film received from Canada’s Design community and the Canadian media. The only saving grace was this critical review by cultural researcher and (former) graphic designer Michèle Champagne for C Magazine, saying:</p>
 
-  <blockquote>“[The film is] a fascinating — if unintentional — look at a world where Canada’s colonial project hides in plain sight.”</blockquote>
+  <blockquote>“[The film is] a fascinating — if unintentional — look at a world where Canada’s colonial project hides in plain sight.”<sup class="fn"><a href="#ref-4" id="cite-4-1" aria-label="Reference 4">4</a></sup></blockquote>
 
-  <p>She also quotes Kwakwaka’wakw artist Marianne Nicolson: “There is a desire to create an empty space for pure celebration. But that requires the denial of many realities, and of Peoples who live here—Indigenous and non-Indigenous ones.”</p>
+  <p>She also quotes Kwakwaka’wakw artist Marianne Nicolson: “There is a desire to create an empty space for pure celebration. But that requires the denial of many realities, and of Peoples who live here—Indigenous and non-Indigenous ones.”<sup class="fn"><a href="#ref-4" id="cite-4-2" aria-label="Reference 4">4</a></sup></p>
 
-  <p>As Champagne points out, colonial and patriarchal constructs freely and fluidly dominate the film with little to no interrogation, but they would have done so with complete abandon if it weren’t for some last minute changes. As John L. Walters reveals in his <a href="https://www.eyemagazine.com/feature/article/they-made-canada" target="_blank" rel="noopener">review</a> of the film for Eye Magazine (which includes snippets of an in-person interview with Durrell), there was little to no reference to Canada’s history of race and gender inequality in the original version of the film. Apparently Durrell was conscious of this — “[it was] something that bothered him” — but it was only after a screening with friends that he realized how bad it really was. In Walters interview with Durrell, they continue to chat about the film’s race and gender issues (over coffee and croissants in Switzerland), when Durrell enthusiastically recalls the big ‘ah-ha’ moment he had in addressing the glaring oversight:</p>
+  <p>As Champagne points out, colonial and patriarchal constructs freely and fluidly dominate the film with little to no interrogation, but they would have done so with complete abandon if it weren’t for some last minute changes. As John L. Walters reveals in his <a href="https://www.eyemagazine.com/feature/article/they-made-canada" target="_blank" rel="noopener">review</a> of the film for Eye Magazine<sup class="fn"><a href="#ref-3" id="cite-3-1" aria-label="Reference 3">3</a></sup> (which includes snippets of an in-person interview with Durrell), there was little to no reference to Canada’s history of race and gender inequality in the original version of the film. Apparently Durrell was conscious of this — “[it was] something that bothered him” — but it was only after a screening with friends that he realized how bad it really was. In Walters interview with Durrell, they continue to chat about the film’s race and gender issues (over coffee and croissants in Switzerland), when Durrell enthusiastically recalls the big ‘ah-ha’ moment he had in addressing the glaring oversight:</p>
 
-  <blockquote>“Instead of the viewer telling me there’s a gender inequality problem, I want to tell the viewer. I’m going to put the film critic in the film!”</blockquote>
+  <blockquote>“Instead of the viewer telling me there’s a gender inequality problem, I want to tell the viewer. I’m going to put the film critic in the film!”<sup class="fn"><a href="#ref-3" id="cite-3-2" aria-label="Reference 3">3</a></sup></blockquote>
 
-  <p>To do this, Durrell tells Walters how he hired journalist Hannah Sung “to discuss issues of race and gender and immigration.” Her voice was then added early in the movie: “There was only a certain kind of immigrant that Canada really wanted. It wasn’t a multicultural society,” Sung says. But as Champagne points out in her review: “[Sung’s] presence is quickly upstaged by a grand progressive narrative, modern images and happy songs.” In summarizing Durrell’s solution of adding Sung’s brief audio appearance, Walters states: “Happily, these last-minute changes worked well.”</p>
+  <p>To do this, Durrell tells Walters how he hired journalist Hannah Sung “to discuss issues of race and gender and immigration.” Her voice was then added early in the movie: “There was only a certain kind of immigrant that Canada really wanted. It wasn’t a multicultural society,” Sung says. But as Champagne points out in her review: “[Sung’s] presence is quickly upstaged by a grand progressive narrative, modern images and happy songs.”<sup class="fn"><a href="#ref-4" id="cite-4-3" aria-label="Reference 4">4</a></sup> In summarizing Durrell’s solution of adding Sung’s brief audio appearance, Walters states: “Happily, these last-minute changes worked well.”<sup class="fn"><a href="#ref-3" id="cite-3-3" aria-label="Reference 3">3</a></sup></p>
 
-  <p>But did they? As Keedy points out: “[Criticism] has prompted some modernist designers to re-evaluate and re-define modernism. They want to appear relevant, without giving up the privileged position that a universalist dogma constructs.” To me, Durrell’s last-second effort to insert Sung’s voice is a prime example of this. But as Keedy says: “These last ditch efforts, superficially pay lip service to — and subsequently disavow — the importance, complexity, and diversity of contemporary culture.”</p>
+  <p>But did they? As Keedy points out: “[Criticism] has prompted some modernist designers to re-evaluate and re-define modernism. They want to appear relevant, without giving up the privileged position that a universalist dogma constructs.”<sup class="fn"><a href="#ref-2" id="cite-2-2" aria-label="Reference 2">2</a></sup> To me, Durrell’s last-second effort to insert Sung’s voice is a prime example of this. But as Keedy says: “These last ditch efforts, superficially pay lip service to — and subsequently disavow — the importance, complexity, and diversity of contemporary culture.”<sup class="fn"><a href="#ref-2" id="cite-2-3" aria-label="Reference 2">2</a></sup></p>
 
   <p>This approach is problematic from pedagogical standpoint as well. In her book <i>Teaching to Transgress</i> (1994) — where she talks about decentering whiteness in the classroom — American author, theorist, educator, and social critic Bell Hooks says:</p>
 
@@ -264,7 +356,7 @@ article>.watch{max-width:var(--text);margin:var(--s4) auto;padding-block:var(--s
 
   <figure>
     <a class="video" data-yt="73VSnWFRcpI" href="https://youtu.be/73VSnWFRcpI" target="_blank" rel="noopener">
-      <img src="assets/poster-indifference.jpg" alt="Last Minute Lumping of Race and Indifference video" width="1600" height="900" loading="lazy">
+      <img src="assets/poster-indifference.jpg" alt="Play video: Last Minute Lumping of Race and Indifference. Poster shows two bearded men laughing over coffee on a terrace above a mountain village." width="1600" height="900" loading="lazy">
       <span class="play" aria-hidden="true"></span>
     </a>
     <figcaption>Last Minute Lumping of Race and Indifference</figcaption>
@@ -274,33 +366,33 @@ article>.watch{max-width:var(--text);margin:var(--s4) auto;padding-block:var(--s
 
   <h2 class="sec">The Backers</h2>
 
-  <p>I wanted to say something in 2018, but there was so much positivity and celebration from the design community and press that I eventually caved into thinking that I was being overly negative. One thing that eventually helped me break through that delusion — aside from discovering the amazing writing and work of designers like <a href="https://www.polymode.studio/" target="_blank" rel="noopener">Silas Munro</a>, <a href="https://ianlynam.com/" target="_blank" rel="noopener">Ian Lynam</a>, <a href="https://modesofcriticism.org/" target="_blank" rel="noopener">Francisco Laranjo</a>, <a href="https://michelechampagne.com/" target="_blank" rel="noopener">Michèle Champagne</a>, <a href="https://www.risd.edu/academics/graphic-design/faculty/ramon-tejada" target="_blank" rel="noopener">Ramon Tejada</a>, <a href="https://jarrettfuller.blog/" target="_blank" rel="noopener">Jarrett Fuller</a>, <a href="https://en.wikipedia.org/wiki/Dori_Tunstall" target="_blank" rel="noopener">Dr.Dori Tunstall</a>, and many more — was Martha Scottford’s essay <a href="https://readings.design/PDF/messy-history-vs-neat-history-toward-an-expanded-view-of-women-in-graphic-design.pdf" target="_blank" rel="noopener">Messy History vs. Neat History</a> (1994), and her follow-up <a href="https://www.eyemagazine.com/blog/post/googling-the-canon" target="_blank" rel="noopener">Googling the canon</a> (2008). In them, Scottford analyzes Meggs’ History of Graphic Design (and later Google) to reveal the lack of female representation within the historical canon of graphic design.</p>
+  <p>I wanted to say something in 2018, but there was so much positivity and celebration from the design community and press that I eventually caved into thinking that I was being overly negative. One thing that eventually helped me break through that delusion — aside from discovering the amazing writing and work of designers like <a href="https://www.polymode.studio/" target="_blank" rel="noopener">Silas Munro</a>, <a href="https://ianlynam.com/" target="_blank" rel="noopener">Ian Lynam</a>, <a href="https://modesofcriticism.org/" target="_blank" rel="noopener">Francisco Laranjo</a>, <a href="https://michelechampagne.com/" target="_blank" rel="noopener">Michèle Champagne</a>, <a href="https://www.risd.edu/academics/graphic-design/faculty/ramon-tejada" target="_blank" rel="noopener">Ramon Tejada</a>, <a href="https://jarrettfuller.blog/" target="_blank" rel="noopener">Jarrett Fuller</a>, <a href="https://en.wikipedia.org/wiki/Dori_Tunstall" target="_blank" rel="noopener">Dr.Dori Tunstall</a>, and many more — was Martha Scottford’s essay <a href="https://readings.design/PDF/messy-history-vs-neat-history-toward-an-expanded-view-of-women-in-graphic-design.pdf" target="_blank" rel="noopener">Messy History vs. Neat History</a> (1994)<sup class="fn"><a href="#ref-5" id="cite-5-1" aria-label="Reference 5">5</a></sup>, and her follow-up <a href="https://www.eyemagazine.com/blog/post/googling-the-canon" target="_blank" rel="noopener">Googling the canon</a> (2008)<sup class="fn"><a href="#ref-6" id="cite-6-1" aria-label="Reference 6">6</a></sup>. In them, Scottford analyzes Meggs’ History of Graphic Design (and later Google) to reveal the lack of female representation within the historical canon of graphic design.</p>
 
   <p>In the spirit of her work, I decided to take a closer look at the Design Canada programme given to me at the Vancouver screening by Durrell himself. It included a long list of the film’s Kickstarter backers who contributed $200 or more to their Design Canada Kickstarter campaign. Sure enough, roughly 90% of the names are of obvious European descent. Keep in mind I don’t have the full list of 1,483 backers, but if we look at this short list of major donors — a list of people who really, really, really wanted to see this movie exist in the world — it’s clear that the pitch for Design Canada disproportionately appealed to white people more than anyone else. How is it that the celebrated cast of heroes and talking heads that make up the progressive narrative of this film are basically a mirror image of those who financially backed it? Was it some weird coincidence that those backers were also a mirror image of those who attended the screening with me as well? Of course we can’t assume they all knew race and gender would be such an afterthought in this film, but then again nobody really complained after watching it, either.</p>
 
   <figure>
-    <div class="frame"><img src="assets/backers.jpg" alt="Design Canada programme page listing Kickstarter backers who pledged 200 dollars or more" width="1400" height="1813" loading="lazy"></div>
-    <figcaption>Kickstarter backers who pledged $200 or more<br>European/Global North Decent: 109/133<br>Asian Decent: 6/133<br>Other/Unsure: 16/133</figcaption>
+    <div class="frame"><img src="assets/backers.jpg" alt="Page from the Design Canada programme listing, in small type, the names of the Kickstarter backers who pledged 200 dollars or more." width="1400" height="1813" loading="lazy"></div>
+    <figcaption>Kickstarter backers who pledged $200 or more<br>European/Global North Descent: 109/133<br>Asian Descent: 6/133<br>Other/Unsure: 16/133</figcaption>
   </figure>
 
   <h2 class="sec">Living in the New Houses</h2>
 
   <p>Most of the modernist graphic design we see in places like Canada Modern and Design Canada come from front-facing corporate and government identity systems, but churning beneath these meticulously crafted presentations of progress, universalism, and simplicity, was the ongoing colonial extraction project we call Canada. Canada’s modernist schemes were cruel and depraving towards those who didn’t fit into white society’s vision of modernity, and the graphic design artifacts that accompanied these schemes reveal a stark counter narrative to Canada’s ‘modern’ identity.</p>
 
-  <p>For example, during the Cold War years of 1965-1970, the Canadian Department of Indian and Northern Development implemented something called the Eskimo Rental Housing Program (ERHP) across parts of the Central and Eastern Arctic. There were claims that the program was a welfare-improving measure, but by examining the work of Inuit graphic artists alongside archival visual culture materials, scholar Erika Ashley Cuoto provides evidence that the ERHP “was an act of acculturation, meant to sedentarize and drastically alter social patterns of the Inuit for the intended and exclusive benefit of the Canadian state.” In her MA thesis titled The Eskimo Rental Housing Program (1965-69): A Case Study in Cold War Authoritarian High Modernism (2015), she points to an 80 page coil-bound booklet titled <a href="https://s3.documentcloud.org/documents/4118335/Copy-of-LivingInTheNewHouse-1.pdf" target="_blank" rel="noopener">Living in the New Houses</a> which served as an “educational guide” for the “Eskimo” people on how to take care of prefabricated rental homes provided to them as part of the ERHP. But it also expands well beyond the scope of helpful home maintenance tips, with “factual information” on everything from “Why the Body Needs Food” to how you should clean the bathroom.</p>
+  <p>For example, during the Cold War years of 1965-1970, the Canadian Department of Indian and Northern Development implemented something called the Eskimo Rental Housing Program (ERHP) across parts of the Central and Eastern Arctic. There were claims that the program was a welfare-improving measure, but by examining the work of Inuit graphic artists alongside archival visual culture materials, scholar Erika Ashley Cuoto provides evidence that the ERHP “was an act of acculturation, meant to sedentarize and drastically alter social patterns of the Inuit for the intended and exclusive benefit of the Canadian state.”<sup class="fn"><a href="#ref-7" id="cite-7-1" aria-label="Reference 7">7</a></sup> In her MA thesis titled The Eskimo Rental Housing Program (1965-69): A Case Study in Cold War Authoritarian High Modernism (2015), she points to an 80 page coil-bound booklet titled <a href="https://s3.documentcloud.org/documents/4118335/Copy-of-LivingInTheNewHouse-1.pdf" target="_blank" rel="noopener">Living in the New Houses</a><sup class="fn"><a href="#ref-8" id="cite-8-1" aria-label="Reference 8">8</a></sup> which served as an “educational guide” for the “Eskimo” people on how to take care of prefabricated rental homes provided to them as part of the ERHP. But it also expands well beyond the scope of helpful home maintenance tips, with “factual information” on everything from “Why the Body Needs Food” to how you should clean the bathroom.</p>
 
   <figure>
     <div class="scroller" aria-roledescription="carousel" aria-label="Pages from Living in the New Houses">
-      <div class="track" tabindex="0">
-        <button class="slide" type="button"><img src="assets/litnh-01.jpg" alt="Cover of Living in the New Houses" width="1600" height="1035"></button>
-        <button class="slide" type="button"><img src="assets/litnh-02.jpg" alt="Title page, illustrated by Gerald Montplaisir" width="1600" height="1035" loading="lazy"></button>
-        <button class="slide" type="button"><img src="assets/litnh-10.jpg" alt="Pages 8 and 9: Why the body needs food" width="1600" height="1035" loading="lazy"></button>
-        <button class="slide" type="button"><img src="assets/litnh-36.jpg" alt="Pages 60 and 61: The bathroom, daily cleaning" width="1600" height="1035" loading="lazy"></button>
-        <button class="slide" type="button"><img src="assets/litnh-46.jpg" alt="Blank notes page" width="1600" height="1035" loading="lazy"></button>
+      <div class="track" tabindex="0" aria-label="Pages, scroll sideways or use the arrow keys">
+        <button class="slide" type="button"><img src="assets/litnh-01.jpg" alt="Page 1 of 5: The spiral-bound cover of Living in the New Houses, pale green, with a round line drawing of a child in front of houses and mountains. Published by the Education Branch, Department of Indian Affairs and Northern Development, Ottawa." width="1600" height="1035"></button>
+        <button class="slide" type="button"><img src="assets/litnh-02.jpg" alt="Page 2 of 5: Title page. Living in the New Houses, illustrated by Gerald Montplaisir, Adult Education Program, Rental Housing Project. A University of Alberta library bookplate is on the facing page." width="1600" height="1035" loading="lazy"></button>
+        <button class="slide" type="button"><img src="assets/litnh-10.jpg" alt="Page 3 of 5: Pages 8 and 9. A drawing of two children playing, captioned “Bodies need fuel too!”, faces a page headed “Why the body needs food” that warns against eating too many cookies and candy." width="1600" height="1035" loading="lazy"></button>
+        <button class="slide" type="button"><img src="assets/litnh-36.jpg" alt="Page 4 of 5: Pages 60 and 61. A drawing of a woman hanging towels in a bathroom, captioned “Towels for each person in the family,” faces a page titled “The bathroom: daily cleaning,” a list of chores such as wiping the soap dish and tidying the toothbrush rack." width="1600" height="1035" loading="lazy"></button>
+        <button class="slide" type="button"><img src="assets/litnh-46.jpg" alt="Page 5 of 5: A blank spread, headed “Notes,” left for the reader to write in." width="1600" height="1035" loading="lazy"></button>
       </div>
       <div class="controls">
         <span class="count" aria-live="polite">1 / 5</span>
-        <div class="dots" aria-label="Choose page"></div>
+        <div class="dots" role="group" aria-label="Choose page"></div>
         <div class="btns">
           <button class="btn prev" type="button" aria-label="Previous page">&#8592;</button>
           <button class="btn next" type="button" aria-label="Next page">&#8594;</button>
@@ -310,40 +402,51 @@ article>.watch{max-width:var(--text);margin:var(--s4) auto;padding-block:var(--s
     <figcaption>Living in the New Houses, c. 1968</figcaption>
   </figure>
 
-  <p>Although the guide is written in English—not Inuit, the language of the intended readership—the designer still seems to pay careful attention to make it as easy to understand as possible. Each of the 38 full-page illustrations — depicting the Inuit people living in mass produced cookie-cutter homes designed for the nuclear family — get plenty of whitespace, making them the focal point of each spread. The simple sentences of text that accompany each illustration are crudely typeset, but are also very legible with high point sizes, ample letter spacing, and generous margins — reminiscent of a children’s book. You’ll also see a few pages in the back that are left blank for note taking. But despite all of these sort of demeaning, paternalistic gestures of reader-friendly design, the ERHP laid out in no uncertain terms the expectations of the Canadian government: “...if anyone does not keep his house clean and repaired, or does not pay the rent, the Housing Association Council will move him into a smaller house.” (Couto, 2015)</p>
+  <p>Although the guide is written in English—not Inuit, the language of the intended readership—the designer still seems to pay careful attention to make it as easy to understand as possible. Each of the 38 full-page illustrations — depicting the Inuit people living in mass produced cookie-cutter homes designed for the nuclear family — get plenty of whitespace, making them the focal point of each spread. The simple sentences of text that accompany each illustration are crudely typeset, but are also very legible with high point sizes, ample letter spacing, and generous margins — reminiscent of a children’s book. You’ll also see a few pages in the back that are left blank for note taking. But despite all of these sort of demeaning, paternalistic gestures of reader-friendly design, the ERHP laid out in no uncertain terms the expectations of the Canadian government: “...if anyone does not keep his house clean and repaired, or does not pay the rent, the Housing Association Council will move him into a smaller house.”<sup class="fn"><a href="#ref-7" id="cite-7-2" aria-label="Reference 7">7</a></sup></p>
 
-  <p>The guide itself may have been easy enough to file away into relative obscurity, but sadly the architectural component of this modernist design scheme — the actual houses themselves — still stand. Many don’t have running water, and are overcrowded: “It’s not uncommon to see up to four generations living in a one-bedroom house.” (Hutter, CBC, 2017) ‘Home is where the heart is’ as the old saying goes, and this couldn’t be more evident in the broken hearts, broken lives, and mental health crisis brought on by these deplorable living conditions. In a CBC story covering the housing crisis in Nibinamik First Nation (Pop.300), they report how the community’s youth council leader, Natasha Sugarhead, had been spending more and more nights on suicide watch: “In her young life, she has lost all three of her brothers to suicide.” (Hutter, CBC, 2017)</p>
+  <p>The guide itself may have been easy enough to file away into relative obscurity, but sadly the architectural component of this modernist design scheme — the actual houses themselves — still stand. Many don’t have running water, and are overcrowded: “It’s not uncommon to see up to four generations living in a one-bedroom house.”<sup class="fn"><a href="#ref-9" id="cite-9-1" aria-label="Reference 9">9</a></sup> ‘Home is where the heart is’ as the old saying goes, and this couldn’t be more evident in the broken hearts, broken lives, and mental health crisis brought on by these deplorable living conditions. In a CBC story covering the housing crisis in Nibinamik First Nation (Pop.300), they report how the community’s youth council leader, Natasha Sugarhead, had been spending more and more nights on suicide watch: “In her young life, she has lost all three of her brothers to suicide.”<sup class="fn"><a href="#ref-9" id="cite-9-2" aria-label="Reference 9">9</a></sup></p>
 
-  <p>As a form of graphic design, I think the booklet offers a far more inclusive glimpse into Canadian modernism than any of its front-facing government or corporate cousins (CBC, CN logo, etc). While the ERHP booklet isn’t as slick as the visual systems that are so coveted and worshiped by design bro’s across Canada, the state-propelled modernist agenda of the booklet is laid bare, explicitly cutting through the slickly produced narrative that currently surrounds the historical canon of Canadian graphic design: The narrative that’s chock-full of wholesome nation building, vibrant multiculturalism, and tolerance. The narrative aggrandized by films like Design Canada and archival websites like Canada Modern, and then cheered-on without question by Canada’s complacent design community. To counter this, I think it’s important that more artifacts like the ERHP booklet come to light, and that they’re recognized for what they are: Modernist Canadian Graphic Design. It’s an important distinction because it shatters the dominant narrative, and empowers the countless voices that experienced the dark side of modernism; voices and experiences that continue to be eaten alive by our very own (and community endorsed) brand of Zombie Modernism.</p>
+  <p>As a form of graphic design, I think the booklet offers a far more inclusive glimpse into Canadian modernism than any of its front-facing government or corporate cousins (CBC, CN logo, etc). While the ERHP booklet isn’t as slick as the visual systems that are so coveted and worshiped by design bro’s across Canada, the state-propelled modernist agenda of the booklet is laid bare, explicitly cutting through the slickly produced narrative that currently surrounds the historical canon of Canadian graphic design: The narrative that’s chock-full of wholesome nation building, vibrant multiculturalism, and tolerance. The narrative aggrandized by films like Design Canada and archival websites like Canada Modern, and then cheered-on without question by Canada’s complacent design community. To counter this, I think it’s important that more artifacts like the ERHP booklet come to light, and that they’re recognized for what they are: <strong>Modernist Canadian Graphic Design.</strong> It’s an important distinction because it shatters the dominant narrative, and empowers the countless voices that experienced the dark side of modernism; voices and experiences that continue to be eaten alive by our very own brand of Zombie Modernism.</p>
 
   <div class="orn" role="separator" aria-hidden="true">*&#8202;&#8202;*&#8202;&#8202;*</div>
 
   <section class="bib" aria-labelledby="bib-h">
     <h2 id="bib-h">Bibliography</h2>
     <ol>
-      <li>Page 179, Chapter 9: Ideology and its Vicissitudes in Western Marxism, by Terry Eagleton. From the book “Mapping Ideology”, Edited by Slavoj Žižek, Publisher: Verso Books, 1994, Book link: <a href="https://analepsis.files.wordpress.com/2011/08/415_mapping-ideology-slavoj-zizek.pdf" target="_blank" rel="noopener">https://analepsis.files.wordpress.com/2011/08/415_mapping-ideology-slavoj-zizek.pdf</a></li>
-      <li>“Zombie Modernism” by Mr. Keedy, From the Magazine “Emigre #34: Rebirth of Design”, Pages 17-39, Year: 1995, Link: <a href="https://readings.design/PDF/Keedy,%20Jeffrey%20%E2%80%94%20Zombie%20Modernism%20(1995).pdf" target="_blank" rel="noopener">https://readings.design/PDF/Keedy,%20Jeffrey%20%E2%80%94%20Zombie%20Modernism%20(1995).pdf</a></li>
-      <li>Design Canada, Eye Magazine review (online): <a href="https://www.eyemagazine.com/feature/article/they-made-canada" target="_blank" rel="noopener">https://www.eyemagazine.com/feature/article/they-made-canada</a></li>
-      <li>“Greg Durrell: Design Canada” by Michèle Champagne, C Magazine, Issue 141, Spring 2019</li>
-      <li>“Messy History vs. Neat History: Toward an Expanded View of Women in Graphic Design.” by Martha Scotford, From the Magazine: “Visible Language”, v28 n4 p368-88, Fall 1994. Link: <a href="https://readings.design/PDF/messy-history-vs-neat-history-toward-an-expanded-view-of-women-in-graphic-design.pdf" target="_blank" rel="noopener">https://readings.design/PDF/messy-history-vs-neat-history-toward-an-expanded-view-of-women-in-graphic-design.pdf</a></li>
-      <li>“Googling the Canon” by Martha Scotford, Publication: Eye Magazine (online), 29 July 2008. Link: <a href="https://www.eyemagazine.com/blog/post/googling-the-canon" target="_blank" rel="noopener">https://www.eyemagazine.com/blog/post/googling-the-canon</a></li>
-      <li>“The Eskimo Rental Housing Program (1965-69): A Case Study in Cold War Authoritarian High Modernism” by Erika Ashley Couto, 2015, Link: <a href="https://spectrum.library.concordia.ca/id/eprint/980384/1/Couto_MA_F2015.pdf" target="_blank" rel="noopener">https://spectrum.library.concordia.ca/id/eprint/980384/1/Couto_MA_F2015.pdf</a></li>
-      <li>“Living in the New Houses”, Publisher: Education Branch, Department of Indian and Northern Affairs Development, Canada, Link: <a href="https://s3.documentcloud.org/documents/4118335/Copy-of-LivingInTheNewHouse-1.pdf" target="_blank" rel="noopener">https://s3.documentcloud.org/documents/4118335/Copy-of-LivingInTheNewHouse-1.pdf</a></li>
-      <li>“Northern Ontario First Nation residents get to design their own homes in pilot project”, Kristy Hutter, CBC News, Nov 01, 2017, Link: <a href="https://web.archive.org/web/20220322032357/https://www.cbc.ca/news/canada/nibinamik-pilot-project-home-design-1.4374183" target="_blank" rel="noopener">https://web.archive.org/web/20220322032357/https://www.cbc.ca/news/canada/nibinamik-pilot-project-home-design-1.4374183</a></li>
+      <li id="ref-1">Page 179, Chapter 9: Ideology and its Vicissitudes in Western Marxism, by Terry Eagleton. From the book “Mapping Ideology”, Edited by Slavoj Žižek, Publisher: Verso Books, 1994, Book link: <a href="https://analepsis.files.wordpress.com/2011/08/415_mapping-ideology-slavoj-zizek.pdf" target="_blank" rel="noopener">https://analepsis.files.wordpress.com/2011/08/415_mapping-ideology-slavoj-zizek.pdf</a> <a class="back" href="#cite-1-1" aria-label="Back to where reference 1 appears in the text">&#8617;&#xFE0E;</a></li>
+      <li id="ref-2">“Zombie Modernism” by Mr. Keedy, From the Magazine “Emigre #34: Rebirth of Design”, Pages 17-39, Year: 1995, Link: <a href="https://readings.design/PDF/Keedy,%20Jeffrey%20%E2%80%94%20Zombie%20Modernism%20(1995).pdf" target="_blank" rel="noopener">https://readings.design/PDF/Keedy,%20Jeffrey%20%E2%80%94%20Zombie%20Modernism%20(1995).pdf</a> <a class="back" href="#cite-2-1" aria-label="Back to where reference 2 appears in the text">&#8617;&#xFE0E;</a></li>
+      <li id="ref-3">Design Canada, Eye Magazine review (online): <a href="https://www.eyemagazine.com/feature/article/they-made-canada" target="_blank" rel="noopener">https://www.eyemagazine.com/feature/article/they-made-canada</a> <a class="back" href="#cite-3-1" aria-label="Back to where reference 3 appears in the text">&#8617;&#xFE0E;</a></li>
+      <li id="ref-4">“Greg Durrell: Design Canada” by Michèle Champagne, C Magazine, Issue 141, Spring 2019 <a class="back" href="#cite-4-1" aria-label="Back to where reference 4 appears in the text">&#8617;&#xFE0E;</a></li>
+      <li id="ref-5">“Messy History vs. Neat History: Toward an Expanded View of Women in Graphic Design.” by Martha Scotford, From the Magazine: “Visible Language”, v28 n4 p368-88, Fall 1994. Link: <a href="https://readings.design/PDF/messy-history-vs-neat-history-toward-an-expanded-view-of-women-in-graphic-design.pdf" target="_blank" rel="noopener">https://readings.design/PDF/messy-history-vs-neat-history-toward-an-expanded-view-of-women-in-graphic-design.pdf</a> <a class="back" href="#cite-5-1" aria-label="Back to where reference 5 appears in the text">&#8617;&#xFE0E;</a></li>
+      <li id="ref-6">“Googling the Canon” by Martha Scotford, Publication: Eye Magazine (online), 29 July 2008. Link: <a href="https://www.eyemagazine.com/blog/post/googling-the-canon" target="_blank" rel="noopener">https://www.eyemagazine.com/blog/post/googling-the-canon</a> <a class="back" href="#cite-6-1" aria-label="Back to where reference 6 appears in the text">&#8617;&#xFE0E;</a></li>
+      <li id="ref-7">“The Eskimo Rental Housing Program (1965-69): A Case Study in Cold War Authoritarian High Modernism” by Erika Ashley Couto, 2015, Link: <a href="https://spectrum.library.concordia.ca/id/eprint/980384/1/Couto_MA_F2015.pdf" target="_blank" rel="noopener">https://spectrum.library.concordia.ca/id/eprint/980384/1/Couto_MA_F2015.pdf</a> <a class="back" href="#cite-7-1" aria-label="Back to where reference 7 appears in the text">&#8617;&#xFE0E;</a></li>
+      <li id="ref-8">“Living in the New Houses”, Publisher: Education Branch, Department of Indian and Northern Affairs Development, Canada, Link: <a href="https://s3.documentcloud.org/documents/4118335/Copy-of-LivingInTheNewHouse-1.pdf" target="_blank" rel="noopener">https://s3.documentcloud.org/documents/4118335/Copy-of-LivingInTheNewHouse-1.pdf</a> <a class="back" href="#cite-8-1" aria-label="Back to where reference 8 appears in the text">&#8617;&#xFE0E;</a></li>
+      <li id="ref-9">“Northern Ontario First Nation residents get to design their own homes in pilot project”, Kristy Hutter, CBC News, Nov 01, 2017, Link: <a href="https://web.archive.org/web/20220322032357/https://www.cbc.ca/news/canada/nibinamik-pilot-project-home-design-1.4374183" target="_blank" rel="noopener">https://web.archive.org/web/20220322032357/https://www.cbc.ca/news/canada/nibinamik-pilot-project-home-design-1.4374183</a> <a class="back" href="#cite-9-1" aria-label="Back to where reference 9 appears in the text">&#8617;&#xFE0E;</a></li>
     </ol>
   </section>
 </article>
 
+<div class="totop"><button type="button" class="top"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Back to top</span></button></div>
+</main>
+
 <footer class="site">
-  <h2 class="who">Contact</h2>
-  <nav aria-label="Elsewhere">
+  <h2 class="who" id="follow-h">Let’s connect!</h2>
+  <nav aria-labelledby="follow-h">
     <a href="https://www.instagram.com/roswerks/" target="_blank" rel="noopener">Instagram</a>
     <a href="https://www.threads.com/@roswerks" target="_blank" rel="noopener">Threads</a>
     <a href="https://www.linkedin.com/in/stephanrosger/" target="_blank" rel="noopener">LinkedIn</a>
     <a href="mailto:rosger@mac.com">rosger@mac.com</a>
   </nav>
-  <p class="copy">&copy; 2026 Stephan Rosger. All rights reserved.</p>
+  <p class="copy">&copy; 2026 Stephan Rosger</p>
 </footer>
+
+<div class="grave" aria-hidden="true">
+  <picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="assets/zombies-still.webp">
+    <source media="(max-width: 700px)" srcset="assets/zombies-1024.webp">
+    <img src="assets/zombies-1600.webp" alt="" width="1600" height="533" loading="lazy" decoding="async">
+  </picture>
+</div>
 
 <div class="lb" hidden role="dialog" aria-modal="true" aria-label="Page viewer">
   <img alt="">
@@ -362,6 +465,87 @@ article>.watch{max-width:var(--text);margin:var(--s4) auto;padding-block:var(--s
     if(img.complete && !img.naturalWidth) fb();
   });
 
+
+  // Links that open a new tab say so to screen readers.
+  document.querySelectorAll('a[target="_blank"]:not(.video)').forEach(function(a){
+    var t=document.createElement('span'); t.className='sr'; t.textContent=' (opens in a new tab)'; a.appendChild(t);
+  });
+
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Reading progress: measured from the start of the essay to the end of its last paragraph (not the bibliography).
+  var bar = document.querySelector('.progress span');
+  var startEl = document.getElementById('essay'), endEl = document.querySelector('section.bib');
+  var ticking = false;
+  function paint(){
+    ticking = false;
+    var start = startEl.getBoundingClientRect().top + scrollY - innerHeight*0.2;
+    var end = endEl.getBoundingClientRect().top + scrollY - innerHeight;
+    var f = (scrollY - start) / Math.max(1, end - start);
+    bar.style.transform = 'scaleX(' + Math.max(0, Math.min(1, f)) + ')';
+  }
+  function req(){ if(!ticking){ ticking = true; requestAnimationFrame(paint); } }
+  addEventListener('scroll', req, {passive:true}); addEventListener('resize', req); req();
+
+  // One quick glide used everywhere (Back to top, note numbers, and the return arrows):
+  // an ease-out of about a third of a second, longer only for very long distances; instant if the reader prefers less motion.
+  var gliding = false;
+  function glideTo(y, done){
+    y = Math.max(0, Math.min(y, document.documentElement.scrollHeight - innerHeight));
+    if(reduce){ scrollTo(0, y); if(done) done(); return; }
+    var from = scrollY, dist = y - from, t0 = performance.now(), dur = Math.min(460, 180 + Math.abs(dist)/40);
+    gliding = true;
+    (function step(now){
+      var k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+      scrollTo(0, from + dist * e);
+      if(k < 1) requestAnimationFrame(step); else { gliding = false; if(done) done(); }
+    })(t0);
+  }
+  function landingY(el){ return el.getBoundingClientRect().top + scrollY - innerHeight * 0.28; }
+
+  document.querySelector('.top').addEventListener('click', function(){
+    var h1 = document.querySelector('h1'); h1.setAttribute('tabindex','-1');
+    glideTo(0, function(){ h1.focus({preventScroll:true}); });
+  });
+
+  // Note numbers glide down to their reference, which brightens to the paragraph white until the next touch, click, key or scroll.
+  var lit = null, litSince = 0;
+  function dim(){ if(lit){ lit.classList.remove('lit'); lit = null; } }
+  addEventListener('scroll', function(){ if(lit && !gliding && performance.now() - litSince > 150) dim(); }, {passive:true});
+  addEventListener('pointerdown', function(){ if(lit && !gliding) dim(); }, true);
+  addEventListener('keydown', function(e){ if(lit && e.key !== 'Tab' && e.key !== 'Shift') dim(); }, true);
+
+  document.querySelectorAll('sup.fn a').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var n = a.getAttribute('href').slice(5), li = document.getElementById('ref-' + n);
+      if(!li) return;
+      e.preventDefault();
+      var back = li.querySelector('.back'), byKey = e.detail === 0;
+      if(back) back.setAttribute('href', '#' + a.id);
+      dim();
+      history.replaceState(null, '', '#ref-' + n);
+      glideTo(landingY(li), function(){
+        lit = li; litSince = performance.now(); li.classList.add('lit');
+        if(byKey && back) back.focus({preventScroll:true});
+      });
+    });
+  });
+
+  // The return arrow glides back up to the exact number you came from.
+  document.querySelectorAll('.bib .back').forEach(function(b){
+    b.addEventListener('click', function(e){
+      var t = document.getElementById(b.getAttribute('href').slice(1));
+      if(!t) return;
+      e.preventDefault(); dim();
+      var byKey = e.detail === 0;
+      history.replaceState(null, '', '#' + t.id);
+      glideTo(landingY(t), function(){
+        lit = t; litSince = performance.now(); t.classList.add('lit');
+        if(byKey) t.focus({preventScroll:true});
+      });
+    });
+  });
+
   // Videos: on the real site the poster becomes an inline YouTube player.
   // Inside a framed preview (where YouTube can't be embedded) the link opens YouTube instead.
   var framed; try{ framed = window.self !== window.top }catch(e){ framed = true }
@@ -375,7 +559,7 @@ article>.watch{max-width:var(--text);margin:var(--s4) auto;padding-block:var(--s
       f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
       f.allowFullscreen = true;
       var box = document.createElement('div'); box.className = 'video'; box.appendChild(f);
-      a.replaceWith(box);
+      a.replaceWith(box); f.focus();
     });
   });
 
@@ -408,10 +592,12 @@ article>.watch{max-width:var(--text);margin:var(--s4) auto;padding-block:var(--s
   update(0);
 
   // Lightbox
+  // While the page viewer is open, everything behind it is taken out of reach so keyboard and screen-reader focus stays inside.
+  function setInert(on){ ['main','footer.site','.skip'].forEach(function(q){ var el=document.querySelector(q); if(el) el.inert = on; }); }
   var lb = document.querySelector('.lb'), lbImg = lb.querySelector('img'), lbCount = lb.querySelector('.lbcount'), li = 0, opener;
   function show(i){ li = (i+n)%n; var s = slides[li].querySelector('img'); lbImg.src = s.src; lbImg.alt = s.alt; lbCount.textContent = (li+1)+' / '+n; }
-  function open(i){ opener = document.activeElement; show(i); lb.hidden = false; document.body.style.overflow='hidden'; lb.querySelector('.close').focus(); }
-  function close(){ lb.hidden = true; document.body.style.overflow=''; go(li); if(opener) opener.focus(); }
+  function open(i){ opener = document.activeElement; show(i); lb.hidden = false; setInert(true); document.body.style.overflow='hidden'; lb.querySelector('.close').focus(); }
+  function close(){ lb.hidden = true; setInert(false); document.body.style.overflow=''; go(li); if(opener) opener.focus(); }
   slides.forEach(function(s,i){ s.addEventListener('click', function(){ open(i) }); });
   lb.querySelector('.close').addEventListener('click', close);
   lb.querySelector('.prev').addEventListener('click', function(){ show(li-1) });
