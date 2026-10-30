@@ -137,8 +137,6 @@ figure>img.page{width:100%;max-width:var(--text);height:auto}
 .slide{flex:0 0 100%;scroll-snap-align:center;cursor:zoom-in;margin:0;padding:0;border:0;background:none}
 .slide img{width:100%;aspect-ratio:1600/1035;object-fit:contain}
 .controls{display:flex;align-items:center;justify-content:space-between;gap:var(--s1)}
-.scroller .controls{position:relative}
-.scroller .count{position:absolute;left:0}
 .count{font-variant-numeric:tabular-nums;color:var(--soft);font-size:.8em;min-width:4ch}
 .dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;flex:1}
 .dots button{width:24px;height:3px;padding:0;border:0;background:var(--rule);cursor:pointer}
@@ -159,7 +157,10 @@ figure>img.page{width:100%;max-width:var(--text);height:auto}
   padding:calc(env(safe-area-inset-top,0px) + 60px) max(10px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 64px) max(10px,env(safe-area-inset-left,0px))}
 .lb img{max-width:100%;max-height:100%;object-fit:contain}
 .lb .btn{position:absolute}
-.lb .close{top:calc(env(safe-area-inset-top,0px) + 10px);right:max(10px,env(safe-area-inset-right,0px))}
+.lb .close{top:calc(env(safe-area-inset-top,0px) + 10px);right:max(10px,env(safe-area-inset-right,0px));border:0;background:none;font-size:34px;font-weight:300}
+.lb .close:hover{opacity:.7}
+.lb{touch-action:none;user-select:none;-webkit-user-select:none}
+.lb img{cursor:zoom-in;will-change:transform}
 .lb .prev{left:max(10px,env(safe-area-inset-left,0px));bottom:calc(env(safe-area-inset-bottom,0px) + 10px)}
 .lb .next{right:max(10px,env(safe-area-inset-right,0px));bottom:calc(env(safe-area-inset-bottom,0px) + 10px)}
 .lb .lbcount{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + 22px);left:50%;transform:translateX(-50%);color:var(--soft);font-size:.8em;font-variant-numeric:tabular-nums}
@@ -416,7 +417,6 @@ footer.site>*{position:relative;z-index:1}
         <button class="slide" type="button"><img src="assets/litnh-46.jpg" alt="Page 5 of 5: A blank spread, headed “Notes,” left for the reader to write in." width="1600" height="1035" loading="lazy"></button>
       </div>
       <div class="controls">
-        <span class="count" aria-live="polite">1 / 5</span>
         <div class="dots" role="group" aria-label="Choose page"></div>
       </div>
     </div>
@@ -610,7 +610,7 @@ footer.site>*{position:relative;z-index:1}
   });
   function go(i){ i = Math.max(0, Math.min(n-1, i)); track.scrollTo({left: slides[i].offsetLeft - track.offsetLeft, behavior: 'smooth'}); }
   function update(i){
-    cur = i; count.textContent = (i+1)+' / '+n; if(prev) prev.disabled = i===0; if(next) next.disabled = i===n-1;
+    cur = i; if(count) count.textContent = (i+1)+' / '+n; if(prev) prev.disabled = i===0; if(next) next.disabled = i===n-1;
     dots.querySelectorAll('button').forEach(function(d,j){ d.setAttribute('aria-current', j===i) });
   }
   track.addEventListener('scroll', function(){
@@ -631,9 +631,9 @@ footer.site>*{position:relative;z-index:1}
   // While the page viewer is open, everything behind it is taken out of reach so keyboard and screen-reader focus stays inside.
   function setInert(on){ ['main','footer.site','.skip'].forEach(function(q){ var el=document.querySelector(q); if(el) el.inert = on; }); }
   var lb = document.querySelector('.lb'), lbImg = lb.querySelector('img'), lbCount = lb.querySelector('.lbcount'), li = 0, opener;
-  function show(i){ li = (i+n)%n; var s = slides[li].querySelector('img'); lbImg.src = s.src; lbImg.alt = s.alt; lbCount.textContent = (li+1)+' / '+n; }
+  function show(i){ li = (i+n)%n; var s = slides[li].querySelector('img'); lbImg.src = s.src; lbImg.alt = s.alt; lbCount.textContent = (li+1)+' / '+n; unzoom(false); }
   function open(i){ opener = document.activeElement; show(i); lb.hidden = false; setInert(true); document.body.style.overflow='hidden'; lb.querySelector('.close').focus(); }
-  function close(){ lb.hidden = true; setInert(false); document.body.style.overflow=''; go(li); if(opener) opener.focus(); }
+  function close(){ lb.hidden = true; unzoom(false); setInert(false); document.body.style.overflow=''; go(li); if(opener) opener.focus(); }
   slides.forEach(function(s,i){ s.addEventListener('click', function(){ open(i) }); });
   lb.querySelector('.close').addEventListener('click', close);
   lb.querySelector('.prev').addEventListener('click', function(){ show(li-1) });
@@ -645,9 +645,61 @@ footer.site>*{position:relative;z-index:1}
     if(e.key==='ArrowLeft') show(li-1);
     if(e.key==='ArrowRight') show(li+1);
   });
-  var sx=null;
-  lb.addEventListener('touchstart', function(e){ sx = e.touches.length===1 ? e.touches[0].clientX : null; }, {passive:true});
-  lb.addEventListener('touchend', function(e){ if(sx===null) return; var dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>50) show(li+(dx<0?1:-1)); sx=null; });
+  // Viewer gestures: double-tap or double-click the page to zoom in on that spot (again to zoom back out),
+  // drag to look around while zoomed, swipe sideways to turn pages, swipe down to close.
+  var z = {s:1, tx:0, ty:0, ox:0, oy:0}, ptr = null, lastTap = 0, lastX = 0, lastY = 0;
+  lbImg.draggable = false;
+  function paint(anim){
+    lbImg.style.transition = anim ? 'transform .25s ease, opacity .25s ease' : 'none';
+    lbImg.style.transformOrigin = z.ox+'px '+z.oy+'px';
+    lbImg.style.transform = 'translate('+z.tx+'px,'+z.ty+'px) scale('+z.s+')';
+    lbImg.style.cursor = z.s>1 ? 'grab' : '';
+  }
+  function unzoom(anim){ z.s=1; z.tx=0; z.ty=0; lbImg.style.opacity=''; paint(anim); }
+  function clampPan(){
+    var w=lbImg.offsetWidth, h=lbImg.offsetHeight, k=z.s-1;
+    z.tx=Math.max(-(w-z.ox)*k, Math.min(z.ox*k, z.tx));
+    z.ty=Math.max(-(h-z.oy)*k, Math.min(z.oy*k, z.ty));
+  }
+  function toggleZoom(x,y){
+    if(z.s>1){ unzoom(true); return; }
+    var r=lbImg.getBoundingClientRect();
+    z.ox=Math.max(0,Math.min(r.width,x-r.left)); z.oy=Math.max(0,Math.min(r.height,y-r.top));
+    z.s=2.5; z.tx=0; z.ty=0; paint(true);
+  }
+  lb.addEventListener('pointerdown', function(e){
+    if(e.target.closest('button')) return;
+    if(ptr){ ptr=null; return; }
+    ptr={id:e.pointerId, x:e.clientX, y:e.clientY, tx:z.tx, ty:z.ty, onImg:e.target===lbImg, moved:false};
+    if(ptr.onImg) e.preventDefault();
+  });
+  lb.addEventListener('pointermove', function(e){
+    if(!ptr || e.pointerId!==ptr.id) return;
+    var dx=e.clientX-ptr.x, dy=e.clientY-ptr.y;
+    if(Math.abs(dx)>8 || Math.abs(dy)>8) ptr.moved=true;
+    if(!ptr.moved) return;
+    if(z.s>1){ z.tx=ptr.tx+dx; z.ty=ptr.ty+dy; clampPan(); paint(false); }
+    else if(dy>0 && dy>Math.abs(dx)){ z.ty=dy; paint(false); lbImg.style.opacity=Math.max(.3,1-dy/400); }
+  });
+  function endPtr(e){
+    if(!ptr || e.pointerId!==ptr.id) return;
+    var p=ptr; ptr=null;
+    var dx=e.clientX-p.x, dy=e.clientY-p.y;
+    if(e.type==='pointercancel'){ if(z.s===1) unzoom(true); return; }
+    if(!p.moved){
+      if(!p.onImg) return;
+      var now=Date.now();
+      if(now-lastTap<320 && Math.abs(e.clientX-lastX)<30 && Math.abs(e.clientY-lastY)<30){ lastTap=0; toggleZoom(e.clientX,e.clientY); }
+      else { lastTap=now; lastX=e.clientX; lastY=e.clientY; }
+      return;
+    }
+    if(z.s>1) return;
+    if(dy>90 && dy>Math.abs(dx)){ close(); return; }
+    unzoom(true);
+    if(Math.abs(dx)>50 && Math.abs(dx)>Math.abs(dy)) show(li+(dx<0?1:-1));
+  }
+  lb.addEventListener('pointerup', endPtr);
+  lb.addEventListener('pointercancel', endPtr);
 })();
 </script>
 
