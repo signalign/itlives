@@ -213,9 +213,11 @@ article>.watch{width:100%;max-width:40rem;margin:var(--s4) auto;padding:clamp(26
 /* reading time under the intro */
 article>.readtime{margin-top:var(--s1);text-align:center;color:var(--soft);font-size:.8em;letter-spacing:.12em;text-transform:uppercase}
 
-/* reading progress: a hairline across the top of the screen that grows left to right as you read the essay */
-.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:40;pointer-events:none}
-.progress span{display:block;height:100%;width:100%;background:var(--ink);opacity:.55;transform:scaleX(0);transform-origin:0 50%;will-change:transform}
+/* reading progress: a hairline across the top of the screen that grows left to right as you read the essay.
+   Drawn in 'difference' mode so it inverts whatever is beneath it: light over dark ground, dark over light book scans and photos.
+   It sits above every other layer, including the image viewer, so it never disappears. */
+.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:70;pointer-events:none;mix-blend-mode:difference;transform:translateZ(0)}
+.progress span{display:block;height:100%;width:100%;background:#fff;transform:scaleX(0);transform-origin:0 50%;will-change:transform}
 
 /* back to top, above the footer rule */
 /* the button sits exactly halfway between the last reference and the footer rule */
@@ -237,7 +239,7 @@ h1[tabindex="-1"]:focus,h2[tabindex="-1"]:focus{outline:none}
 /* page dots keep their slim look but get a full-size touch target */
 .dots button{background-clip:content-box;padding:10px 0;height:23px;box-sizing:border-box}
 @media (prefers-reduced-motion:reduce){.progress span{will-change:auto}}
-@media (forced-colors:active){.progress span{background:CanvasText;opacity:1}.top{border-color:ButtonText;color:ButtonText}}
+@media (forced-colors:active){.progress{mix-blend-mode:normal}.progress span{background:CanvasText;opacity:1}.top{border-color:ButtonText;color:ButtonText}}
 /* note numbers: small, quiet, and a real link to the matching reference; the reference links back */
 sup.fn{font-size:.62em;line-height:0;vertical-align:super;margin-left:.06em;font-variant-numeric:lining-nums tabular-nums;font-style:normal;text-indent:0}
 sup.fn a{color:var(--soft);font-weight:600;text-decoration:none;padding:.3em .22em;border-radius:2px}
@@ -532,14 +534,15 @@ footer.site>*{position:relative;z-index:1}
   var bar = document.querySelector('.progress span');
   var startEl = document.getElementById('essay'), endEl = document.querySelector('section.bib');
   var ticking = false;
-  function paint(){
+  // Named paintProgress so it can't be overwritten by the image viewer's own paint() further down.
+  function paintProgress(){
     ticking = false;
     var start = startEl.getBoundingClientRect().top + scrollY - innerHeight*0.2;
     var end = endEl.getBoundingClientRect().top + scrollY - innerHeight;
     var f = (scrollY - start) / Math.max(1, end - start);
     bar.style.transform = 'scaleX(' + Math.max(0, Math.min(1, f)) + ')';
   }
-  function req(){ if(!ticking){ ticking = true; requestAnimationFrame(paint); } }
+  function req(){ if(!ticking){ ticking = true; requestAnimationFrame(paintProgress); } }
   addEventListener('scroll', req, {passive:true}); addEventListener('resize', req); req();
 
   // One quick glide used everywhere (Back to top, note numbers, and the return arrows):
