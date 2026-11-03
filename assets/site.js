@@ -157,7 +157,7 @@
     a.addEventListener('click', function (ev) {
       ev.preventDefault();
       var f = document.createElement('iframe');
-      f.src = 'https://www.youtube-nocookie.com/embed/' + a.dataset.yt + '?autoplay=1&rel=0&playsinline=1' + (a.dataset.start ? '&start=' + a.dataset.start : '');
+      f.src = 'https://www.youtube.com/embed/' + a.dataset.yt + '?autoplay=1&rel=0&playsinline=1' + (a.dataset.start ? '&start=' + a.dataset.start : '');
       f.title = a.querySelector('img').alt;
       f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
       f.allowFullscreen = true;
