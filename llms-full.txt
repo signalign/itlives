@@ -4,7 +4,6 @@
 
 - Author: Stephan Rosger, writer, researcher and designer, Canada
 - Video essay: https://youtu.be/B8p7vpyYjHs
-- Contact: hello@itlives.ca
 - Short summary and links: https://itlives.ca/llms.txt
 
 This essay was originally published in the first edition of An Imperfect Index (Sold out).
