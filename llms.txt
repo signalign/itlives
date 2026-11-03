@@ -7,6 +7,7 @@ It Lives! argues that Canadian graphic design still worships a 1960s modernist "
 ## Read and watch
 
 - [The essay](https://itlives.ca/): full text with footnotes and bibliography, about a 15-minute read
+- [Full text as plain Markdown](https://itlives.ca/llms-full.txt): the complete essay and numbered bibliography, no page chrome
 - [The video essay](https://youtu.be/B8p7vpyYjHs): the whole essay as one narrated film
 
 ## Key sources
@@ -19,5 +20,6 @@ It Lives! argues that Canadian graphic design still worships a 1960s modernist "
 ## Author
 
 - Stephan Rosger, writer, researcher and designer, Canada
+- Contact: hello@itlives.ca
 - Instagram: https://www.instagram.com/roswerks/
 - LinkedIn: https://www.linkedin.com/in/stephanrosger/
